@@ -36,3 +36,7 @@ All in `public/sites/retuertographicdesign/images/`, downloaded from `/wp-conten
 - Forms are not wired to a backend (submit to source URLs).
 - Cookie consent banner (Complianz) and WooCommerce mini-cart drawer not reproduced.
 - Map iframe loads directly (the source gates it behind cookie consent).
+
+## Deployment
+- Live: https://retuertographic.github.io/retuertogra/ (GitHub Pages, source "GitHub Actions").
+- `.github/workflows/deploy-pages.yml` builds the static export (`GITHUB_PAGES=true`, basePath from `actions/configure-pages`) and deploys on every push to `main`.
