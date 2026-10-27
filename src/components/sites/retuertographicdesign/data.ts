@@ -1,8 +1,10 @@
 export const SOURCE_ORIGIN = "https://retuertographicdesign.com";
-export const ASSET_BASE = "/sites/retuertographicdesign/images";
+// basePath is prepended manually: next/image and inline background URLs do not add it.
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const ASSET_BASE = `${BASE_PATH}/sites/retuertographicdesign/images`;
 
 export const navLinks = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: `${BASE_PATH}/` },
   { label: "Shop", href: `${SOURCE_ORIGIN}/shop/` },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
