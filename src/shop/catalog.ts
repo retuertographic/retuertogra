@@ -68,7 +68,7 @@ export const products: Product[] = [
 
 /** Custom solutions on the shop home, grouped in four blocks. */
 export const solutionGroups: { id: SolutionGroupId; icon: Category["icon"]; products: ProductId[] }[] = [
-  { id: "automation", icon: "bot", products: ["voice-agent", "invoice-automation", "system-integrations", "menu-pos-sync"] },
+  { id: "automation", icon: "bot", products: ["chat-crm", "voice-agent", "invoice-automation", "system-integrations", "menu-pos-sync"] },
   { id: "apps", icon: "smartphone", products: ["bodyshop-app", "citizen-incidents", "oidococina", "custom-apps"] },
   { id: "web-geo", icon: "code", products: ["custom-website", "video-guide", "canarygps"] },
   { id: "marketing-design", icon: "megaphone", products: ["seo-geo-llmo", "social-content", "video-production", "ad-campaigns", "brand-identity"] },
