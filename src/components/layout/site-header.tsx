@@ -70,12 +70,13 @@ function DesktopNavItem({ item, compact }: { item: NavItem; compact: boolean }) 
 
 export function SiteHeader({ locale, nav, strings, homeHref, alternates }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const current = localeConfig[locale];
   const others = locales.filter((l) => l !== locale);
 
   return (
     <header className="relative z-30 bg-white">
-      <div className="mx-auto flex h-[169px] max-w-[1060px] flex-wrap items-start px-5 pt-[30px] min-[1025px]:h-[149px] min-[1025px]:flex-nowrap min-[1025px]:items-center min-[1025px]:pl-0 min-[1025px]:pr-[42px] min-[1025px]:pt-0">
+      <div className="mx-auto flex h-[84px] max-w-[1060px] items-center px-4 min-[400px]:px-5 min-[1025px]:h-[149px] min-[1025px]:pl-0 min-[1025px]:pr-[42px]">
         <a href={homeHref} className="shrink-0" aria-label="Retuerto Graphic Design">
           <Image
             src={`${ASSET_BASE}/logo.png`}
@@ -83,7 +84,7 @@ export function SiteHeader({ locale, nav, strings, homeHref, alternates }: SiteH
             width={310}
             height={98}
             priority
-            className="h-auto w-[130px] min-[1025px]:w-[200px]"
+            className="h-auto w-[104px] min-[360px]:w-[118px] min-[400px]:w-[130px] min-[1025px]:w-[200px]"
           />
         </a>
 
@@ -116,35 +117,61 @@ export function SiteHeader({ locale, nav, strings, homeHref, alternates }: SiteH
           <CartButton label={strings.cart} />
         </nav>
 
-        <div className="ml-auto flex items-center gap-1 min-[1025px]:hidden">
+        <div className="ml-auto flex items-center gap-1.5 min-[1025px]:hidden">
+          {/* Language switcher (mobile): current language in the top bar, others in a dropdown. */}
+          <div className="relative">
+            <button
+              type="button"
+              aria-label={`${strings.switchTo}…`}
+              aria-expanded={langOpen}
+              aria-haspopup="true"
+              onClick={() => {
+                setLangOpen((open) => !open);
+                setMenuOpen(false);
+              }}
+              className="flex h-[34px] items-center gap-1.5 rounded-[30px] border border-rg-ink/20 px-2.5 font-figtree text-sm font-semibold uppercase text-rg-ink"
+            >
+              <Image src={`${ASSET_BASE}/${current.flag}`} alt="" width={18} height={12} />
+              <span className="hidden min-[360px]:inline">{locale}</span>
+              <AngleDownIcon className={cn("size-3 text-rg-green transition-transform", langOpen && "rotate-180")} />
+            </button>
+            {langOpen && (
+              <ul className="absolute right-0 top-full z-40 mt-2 w-[170px] border-t-2 border-rg-green bg-white py-1 shadow-lg">
+                {others.map((l) => (
+                  <li key={l}>
+                    <a
+                      href={alternates[l]}
+                      hrefLang={l}
+                      lang={l}
+                      onClick={() => setLangOpen(false)}
+                      className="flex items-center gap-2.5 px-4 py-2.5 font-figtree text-base text-rg-ink hover:bg-rg-gray hover:text-rg-green"
+                    >
+                      <Image src={`${ASSET_BASE}/${localeConfig[l].flag}`} alt="" width={18} height={12} />
+                      {localeConfig[l].nativeName}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <button
             type="button"
             aria-label={strings.toggleMenu}
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-[34px] w-[56px] items-center justify-center bg-[#1b1e20] text-white"
+            onClick={() => {
+              setMenuOpen((open) => !open);
+              setLangOpen(false);
+            }}
+            className="flex h-[34px] w-[50px] items-center justify-center bg-[#1b1e20] text-white"
           >
-            <BarsIcon className="h-[30px] w-[42px]" />
+            <BarsIcon className="h-[26px] w-[36px]" />
           </button>
           <CartButton label={strings.cart} />
-        </div>
-
-        <div className="mt-[34px] flex w-full gap-4 min-[1025px]:hidden">
-          {others.map((l) => (
-            <a
-              key={l}
-              href={alternates[l]}
-              hrefLang={l}
-              aria-label={`${strings.switchTo} ${localeConfig[l].names[locale]}`}
-            >
-              <Image src={`${ASSET_BASE}/${localeConfig[l].flag}`} alt={localeConfig[l].nativeName} width={18} height={12} />
-            </a>
-          ))}
         </div>
       </div>
 
       {menuOpen && (
-        <nav className="absolute inset-x-0 top-[100px] max-h-[calc(100vh-100px)] overflow-y-auto bg-[#1b1e20] min-[1025px]:hidden">
+        <nav className="absolute inset-x-0 top-[84px] max-h-[calc(100vh-84px)] overflow-y-auto bg-[#1b1e20] min-[1025px]:hidden">
           {nav.map((item) => (
             <div key={item.label}>
               <a
