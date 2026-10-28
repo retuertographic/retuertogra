@@ -10,6 +10,9 @@ export type GlossaryLetter = {
   entries: { id: string; term: string; def: string; posts: { title: string; href: string }[] }[];
 };
 
+/** Articles listed under each term ("Appears in"); the rest are counted. */
+const MAX_POSTS = 3;
+
 /** Glossary: search box + A–Z index (sticky, scrollable on mobile) + term cards. */
 export function GlossaryBrowser({
   letters,
@@ -80,12 +83,13 @@ export function GlossaryBrowser({
                   {e.posts.length > 0 && (
                     <dd className="mt-4 border-t border-line pt-3 font-figtree text-sm">
                       <span className="text-muted">{labels.appearsIn}: </span>
-                      {e.posts.map((p, i) => (
+                      {e.posts.slice(0, MAX_POSTS).map((p, i) => (
                         <span key={p.href}>
                           {i > 0 && ", "}
                           <a href={p.href} className="font-semibold text-brand-dark hover:text-ink">{p.title}</a>
                         </span>
                       ))}
+                      {e.posts.length > MAX_POSTS && <span className="text-muted"> +{e.posts.length - MAX_POSTS}</span>}
                     </dd>
                   )}
                 </div>
