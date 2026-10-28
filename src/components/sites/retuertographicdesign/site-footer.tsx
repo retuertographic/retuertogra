@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ASSET_BASE, SOURCE_ORIGIN, footerInfoLinks } from "./data";
+import { ASSET_BASE, mapAddress } from "./data";
+import { type Dictionary, type Locale, languages, localeHref, locales } from "./i18n";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -21,7 +21,8 @@ const heading = "font-poppins text-2xl font-semibold leading-[1] text-rg-ink";
 const greenLink = "font-figtree text-base leading-6 text-rg-green hover:text-rg-ink";
 const contactItem = "font-figtree text-base leading-6 text-rg-text";
 
-export function SiteFooter() {
+export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const t = dict.footer;
   return (
     <footer className="bg-white">
       <div className="mx-auto grid max-w-[1120px] gap-12 px-6 pt-20 pb-[54px] min-[1025px]:grid-cols-[399px_228px_228px_265px] min-[1025px]:gap-0 min-[1025px]:px-0">
@@ -33,10 +34,7 @@ export function SiteFooter() {
             height={98}
             className="h-auto w-[310px]"
           />
-          <p className={`${contactItem} mt-12`}>
-            Our goal is to create insightful and content that you can put to
-            work in personal and professional life.
-          </p>
+          <p className={`${contactItem} mt-12`}>{t.about}</p>
           <div className="mt-[39px] flex gap-3">
             {socials.map(({ label, Icon }) => (
               <a
@@ -52,16 +50,16 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className={heading}>Quick link</h4>
+          <h4 className={heading}>{t.quickLinks}</h4>
           <ul className="mt-5 flex flex-col gap-4">
             <li>
-              <Link href="/" className={greenLink}>Home</Link>
+              <a href={localeHref(locale)} className={greenLink}>{t.home}</a>
             </li>
             <li>
-              <a href={`${SOURCE_ORIGIN}/shop/`} className={greenLink}>Shop</a>
+              <a href={t.shop.href} className={greenLink}>{t.shop.label}</a>
             </li>
           </ul>
-          <h4 className={`${heading} mt-[30px]`}>Payments</h4>
+          <h4 className={`${heading} mt-[30px]`}>{t.payments}</h4>
           <div className="mt-[25px] flex gap-3">
             {[VisaIcon, MastercardIcon].map((Icon, i) => (
               <span
@@ -75,9 +73,9 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className={heading}>Information</h4>
+          <h4 className={heading}>{t.information}</h4>
           <ul className="mt-5 flex flex-col gap-4">
-            {footerInfoLinks.map((link) => (
+            {t.infoLinks.map((link) => (
               <li key={link.label}>
                 <a href={link.href} className={greenLink}>{link.label}</a>
               </li>
@@ -86,29 +84,29 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className={heading}>Connect</h4>
+          <h4 className={heading}>{t.connect}</h4>
           <ul className="mt-5 flex flex-col gap-5">
             <li className={contactItem}>
-              C. de Calderón de la Barca, 2, Oficina 3, 38005 Santa Cruz de Tenerife
+              {mapAddress}
             </li>
             <li>
               <a href="tel:0034922971723" className={contactItem}>
-                ES Phone: 0034 922971723 (whatsapp)
+                {t.esPhone}
               </a>
             </li>
             <li>
               <a href="tel:00493031878629" className={contactItem}>
-                DE Phone: 0049 30 31878629
+                {t.dePhone}
               </a>
             </li>
             <li>
               <a href="mailto:info@retuertographicdesign.com" className={contactItem}>
-                Email: info@retuertographicdesign.com
+                {t.email}
               </a>
             </li>
             <li>
               <a href="mailto:info@retuertographicdesign.com" className={contactItem}>
-                Office hours: 9:00 -15:00 M-F
+                {t.hours}
               </a>
             </li>
           </ul>
@@ -117,19 +115,32 @@ export function SiteFooter() {
 
       <div className="mx-[10px] border-t border-[#ddd] pt-9 pb-[37px] text-center">
         <p className="font-inter text-[14.4px] leading-[1.2] text-rg-text">
-          © 2026 Copyright all right reserved.
+          {t.copyright}
         </p>
-        <ul className="mt-[59px] flex justify-center gap-5 text-[#444]">
-          <li className="flex items-center gap-2">
-            <Image src={`${ASSET_BASE}/flag-en.svg`} alt="" width={18} height={12} />
-            English
-          </li>
-          <li>
-            <a href={`${SOURCE_ORIGIN}/es/`} className="flex items-center gap-2 hover:text-rg-green">
-              <Image src={`${ASSET_BASE}/flag-es.svg`} alt="" width={18} height={12} />
-              Español (Spanish)
-            </a>
-          </li>
+        <ul className="mt-[59px] flex flex-wrap justify-center gap-x-5 gap-y-2 text-[#444]">
+          {locales.map((l) => {
+            const label =
+              l === locale
+                ? languages[l].nativeName
+                : `${languages[l].nativeName} (${languages[l].names[locale]})`;
+            const content = (
+              <>
+                <Image src={`${ASSET_BASE}/${languages[l].flag}`} alt="" width={18} height={12} />
+                {label}
+              </>
+            );
+            return (
+              <li key={l}>
+                {l === locale ? (
+                  <span className="flex items-center gap-2" aria-current="page">{content}</span>
+                ) : (
+                  <a href={localeHref(l)} hrefLang={l} lang={l} className="flex items-center gap-2 hover:text-rg-green">
+                    {content}
+                  </a>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </footer>

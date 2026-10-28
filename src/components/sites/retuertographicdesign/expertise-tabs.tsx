@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { cn } from "@/lib/utils";
-import { expertiseTabs } from "./data";
+import { expertiseMedia } from "./data";
+import type { Dictionary } from "./i18n";
 
-type Tab = (typeof expertiseTabs)[number];
+type Tab = Dictionary["expertise"]["tabs"][number] & (typeof expertiseMedia)[number];
 
 function TabPanel({ tab }: { tab: Tab }) {
   return (
@@ -63,7 +64,8 @@ function TabButton({
   );
 }
 
-export function ExpertiseTabs() {
+export function ExpertiseTabs({ dict }: { dict: Dictionary }) {
+  const expertiseTabs: Tab[] = dict.expertise.tabs.map((tab, i) => ({ ...tab, ...expertiseMedia[i] }));
   const [active, setActive] = useState(0);
 
   return (

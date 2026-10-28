@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ASSET_BASE, SOURCE_ORIGIN, mapEmbedUrl, projects } from "./data";
+import { ASSET_BASE, SOURCE_ORIGIN, mapAddress, mapEmbedUrl, projectImages } from "./data";
+import type { Dictionary } from "./i18n";
 import { CatalogCarousel } from "./catalog-carousel";
 import { ExpertiseTabs } from "./expertise-tabs";
 import { SmallChevronRightIcon, StarIcon } from "./icons";
@@ -11,32 +12,23 @@ const body = "font-figtree text-base leading-6 text-rg-text";
 const greenButton =
   "inline-block rounded-[3px] border border-rg-green bg-rg-green px-6 py-3 font-figtree text-base leading-6 text-white underline underline-offset-2 transition-colors hover:bg-rg-green-dark";
 
-export function ExpertiseSection() {
+type SectionProps = { dict: Dictionary };
+
+export function ExpertiseSection({ dict }: SectionProps) {
   return (
-    <section id="services" className="pt-[60px] pb-[60px] min-[1025px]:pt-[116px] min-[1025px]:pb-[84px]">
+    <section id={dict.anchors.services} className="pt-[60px] pb-[60px] min-[1025px]:pt-[116px] min-[1025px]:pb-[84px]">
       <div className="text-center">
-        <h5 className={`${h5} text-rg-text`}>Why we do it</h5>
-        <h2 className={`${h2} mt-4`}>Our Expertise</h2>
+        <h5 className={`${h5} text-rg-text`}>{dict.expertise.eyebrow}</h5>
+        <h2 className={`${h2} mt-4`}>{dict.expertise.title}</h2>
       </div>
-      <ExpertiseTabs />
+      <ExpertiseTabs dict={dict} />
     </section>
   );
 }
 
-const values = [
-  {
-    title: "Our Mission",
-    body: "To bridge creativity and technology, ensuring that every project we undertake speaks directly to your audience's heart and mind.",
-  },
-  {
-    title: "Our Values",
-    body: "We prioritize connection, focus on human-centered communication and design, and strive for precision—always looking forward to what’s next.",
-  },
-];
-
-export function WhatWeDoSection() {
+export function WhatWeDoSection({ dict }: SectionProps) {
   return (
-    <section id="about" className="px-4 py-[60px] min-[1025px]:px-20 min-[1025px]:pt-[124px] min-[1025px]:pb-[97px]">
+    <section id={dict.anchors.about} className="px-4 py-[60px] min-[1025px]:px-20 min-[1025px]:pt-[124px] min-[1025px]:pb-[97px]">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-16 min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:gap-20">
         <Image
           src={`${ASSET_BASE}/what-we-do.webp`}
@@ -47,15 +39,10 @@ export function WhatWeDoSection() {
           sizes="(min-width: 1025px) 600px, 100vw"
         />
         <div className="flex-1">
-          <h2 className={h2}>What we do</h2>
-          <p className={`${body} mt-6`}>
-            We believe in connecting experiences, whether you’re seeking to
-            inform, promote, support, or engage. Through the synergy of IT and
-            graphic design, we turn your vision into reality, crafting
-            solutions that resonate and inspire.
-          </p>
+          <h2 className={h2}>{dict.whatWeDo.title}</h2>
+          <p className={`${body} mt-6`}>{dict.whatWeDo.body}</p>
           <div className="mt-8 flex flex-col gap-6">
-            {values.map((v) => (
+            {dict.whatWeDo.values.map((v) => (
               <div key={v.title} className="flex flex-col gap-4 min-[1025px]:flex-row min-[1025px]:gap-6">
                 <StarIcon className="size-8 shrink-0 text-rg-green" />
                 <div>
@@ -71,21 +58,17 @@ export function WhatWeDoSection() {
   );
 }
 
-export function ConnectMindsSection() {
+export function ConnectMindsSection({ dict }: SectionProps) {
   return (
     <section className="px-[34px] py-[60px] min-[1025px]:px-[90px] min-[1025px]:py-[110px]">
       <div className="mx-auto flex max-w-[1260px] flex-col gap-12 min-[1025px]:flex-row min-[1025px]:justify-between">
         <h2 className="font-poppins text-[40px] font-semibold leading-[1.2] text-rg-ink min-[1025px]:w-[639px] min-[1025px]:text-[56px]">
-          Connect Minds with Our Innovative Solutions
+          {dict.connectMinds.title}
         </h2>
         <div className="min-[1025px]:mr-[41px] min-[1025px]:w-[480px]">
-          <h5 className={`${h5} text-rg-text`}>
-            From intuitive mobile apps and custom web development to automated
-            ad campaigns, we are the bridge between your brand and your
-            customers. Let’s bring your next big vision to life.
-          </h5>
-          <a href={`${SOURCE_ORIGIN}/contact/`} className={`${greenButton} mt-5`}>
-            Connect
+          <h5 className={`${h5} text-rg-text`}>{dict.connectMinds.body}</h5>
+          <a href={dict.connectMinds.href} className={`${greenButton} mt-5`}>
+            {dict.connectMinds.cta}
           </a>
         </div>
       </div>
@@ -93,23 +76,22 @@ export function ConnectMindsSection() {
   );
 }
 
-export function FeaturedWorkSection() {
+export function FeaturedWorkSection({ dict }: SectionProps) {
   return (
     <section className="px-4 py-[60px] min-[1025px]:px-20 min-[1025px]:pt-[136px] min-[1025px]:pb-[112px]">
       <div className="mx-auto max-w-[1140px] text-center">
-        <h5 className={`${h5} text-rg-ink`}>Featured Work</h5>
-        <h2 className={`${h2} mt-6`}>Explore Our Innovative Projects</h2>
+        <h5 className={`${h5} text-rg-ink`}>{dict.featured.eyebrow}</h5>
+        <h2 className={`${h2} mt-6`}>{dict.featured.title}</h2>
         <p className="mt-6 font-poppins text-lg font-medium leading-[1.5] text-rg-text">
-          Taking creativity to the next level, our portfolio showcases unique
-          solutions that blend design and technology.
+          {dict.featured.body}
         </p>
       </div>
 
       <div className="mx-auto mt-[85px] grid max-w-[1280px] items-start gap-8 min-[1025px]:grid-cols-3">
-        {projects.map((project) => (
+        {dict.featured.projects.map((project, i) => (
           <article key={project.title} className="border border-rg-ink">
             <Image
-              src={project.image}
+              src={projectImages[i]}
               alt=""
               width={1536}
               height={864}
@@ -148,60 +130,56 @@ export function FeaturedWorkSection() {
           href="#"
           className="inline-block border border-rg-ink px-6 py-3 font-figtree text-base leading-6 text-rg-ink underline underline-offset-2"
         >
-          See All Projects
+          {dict.featured.seeAll}
         </a>
       </div>
     </section>
   );
 }
 
-export function CatalogSection() {
+export function CatalogSection({ dict }: SectionProps) {
   return (
     <section className="px-4 py-[60px] min-[1025px]:px-[90px] min-[1025px]:pt-[142px] min-[1025px]:pb-[110px]">
       <div className="mx-auto max-w-[1260px]">
         <div className="text-center">
-          <h2 className={h2}>The Retuerto&apos;s Growth Catalog</h2>
-          <h5 className={`${h5} mt-5 text-rg-text`}>Tools to Measure, Move, and Market</h5>
+          <h2 className={h2}>{dict.catalog.title}</h2>
+          <h5 className={`${h5} mt-5 text-rg-text`}>{dict.catalog.subtitle}</h5>
         </div>
-        <CatalogCarousel />
+        <CatalogCarousel dict={dict} />
       </div>
     </section>
   );
 }
 
-export function NewsletterSection() {
+export function NewsletterSection({ dict }: SectionProps) {
   return (
     <section className="bg-rg-gray px-4 py-[60px] min-[1025px]:px-20 min-[1025px]:py-[100px]">
       <div className="mx-auto max-w-[1280px] text-center">
-        <h2 className={h2}>Stay in the loop with our insights!</h2>
-        <p className={`${body} mt-12`}>
-          Join our newsletter for tips, updates, and exclusive insights tailored
-          just for you. Stay connected and grow your knowledge with industry
-          trends and creative solutions delivered right to your inbox.
-        </p>
+        <h2 className={h2}>{dict.newsletter.title}</h2>
+        <p className={`${body} mt-12`}>{dict.newsletter.body}</p>
         <form
           action={`${SOURCE_ORIGIN}/`}
           className="mx-auto mt-[53px] flex max-w-[1024px] flex-col gap-5 min-[1025px]:flex-row min-[1025px]:gap-3"
         >
           <input
             name="name"
-            placeholder="Enter your name"
-            aria-label="Your Name"
+            placeholder={dict.newsletter.namePlaceholder}
+            aria-label={dict.newsletter.name}
             className="h-[47px] w-full rounded-[4px] min-[1025px]:flex-1 border border-rg-blue bg-white px-4 font-poppins text-base text-rg-blue outline-none placeholder:text-rg-blue/70"
           />
           <input
             type="email"
             name="email"
             required
-            placeholder="Enter your email*"
-            aria-label="Your Email"
+            placeholder={dict.newsletter.emailPlaceholder}
+            aria-label={dict.newsletter.email}
             className="h-[47px] w-full rounded-[4px] min-[1025px]:flex-1 border border-rg-blue bg-white px-4 font-poppins text-base text-rg-blue outline-none placeholder:text-rg-blue/70"
           />
           <button
             type="submit"
             className="h-[50px] w-full rounded-[4px] bg-rg-green min-[1025px]:flex-1 font-figtree text-base text-white transition-colors hover:bg-rg-green-dark"
           >
-            Connect
+            {dict.newsletter.submit}
           </button>
         </form>
       </div>
@@ -209,7 +187,7 @@ export function NewsletterSection() {
   );
 }
 
-export function ConnectingExperiencesSection() {
+export function ConnectingExperiencesSection({ dict }: SectionProps) {
   return (
     <section
       className="relative flex min-h-[450px] items-center justify-center bg-cover bg-center px-4 py-12"
@@ -217,24 +195,20 @@ export function ConnectingExperiencesSection() {
     >
       <div className="absolute inset-0 bg-rg-blue opacity-60" />
       <div className="relative max-w-[750px] text-center text-white">
-        <h5 className={h5}>We bridge the gap between creative design and technical execution</h5>
+        <h5 className={h5}>{dict.banner.eyebrow}</h5>
         <h2 className="mt-6 font-poppins text-[32px] font-semibold leading-[1.2] min-[1025px]:text-5xl">
-          Connecting experiences
+          {dict.banner.title}
         </h2>
-        <p className="mt-6 font-figtree text-base leading-6">
-          Your ideas deserve to shine. We specialize in transforming concepts
-          into captivating designs that engage and inspire. Lets navigate the
-          future of creativity together.
-        </p>
+        <p className="mt-6 font-figtree text-base leading-6">{dict.banner.body}</p>
         <div className="mt-[14px] flex justify-center gap-6">
           <a href="#" className={greenButton}>
-            Appointment
+            {dict.banner.appointment}
           </a>
           <a
             href="#"
             className="inline-block rounded-[3px] border border-white px-6 py-3 font-figtree text-base leading-6 text-white underline underline-offset-2"
           >
-            See Our Work
+            {dict.banner.work}
           </a>
         </div>
       </div>
@@ -242,26 +216,21 @@ export function ConnectingExperiencesSection() {
   );
 }
 
-export function LetsConnectSection() {
+export function LetsConnectSection({ dict }: SectionProps) {
   return (
-    <section id="contact" className="bg-rg-green px-4 py-[60px] min-[1025px]:px-[90px] min-[1025px]:py-[110px]">
+    <section id={dict.anchors.contact} className="bg-rg-green px-4 py-[60px] min-[1025px]:px-[90px] min-[1025px]:py-[110px]">
       <div className="mx-auto flex max-w-[1260px] flex-col gap-12 min-[1025px]:flex-row min-[1025px]:items-center min-[1025px]:justify-between">
         <iframe
           src={mapEmbedUrl}
-          title="C. de Calderón de la Barca, 2, Oficina 3, 38005 Santa Cruz de Tenerife"
+          title={mapAddress}
           loading="lazy"
           className="h-[400px] w-full border-0 min-[1025px]:w-[580px]"
         />
         <div className="min-[1025px]:w-[580px]">
           <h2 className="font-poppins text-[32px] font-semibold leading-[1.2] text-white min-[1025px]:text-5xl">
-            Let&apos;s Connect
+            {dict.contact.title}
           </h2>
-          <p className="mt-6 font-figtree text-base leading-6 text-white">
-            We’re here to help you with your marketing and creative needs.
-            Whether you have questions about our services or want to discuss a
-            new project, feel free to reach out. Our team is eager to assist
-            you! You can also find us on social media. Let’s connect!
-          </p>
+          <p className="mt-6 font-figtree text-base leading-6 text-white">{dict.contact.body}</p>
         </div>
       </div>
     </section>

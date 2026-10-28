@@ -2,33 +2,34 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { SOURCE_ORIGIN, heroSlides } from "./data";
+import { heroSlides } from "./data";
+import type { Dictionary } from "./i18n";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
 
-function ConnectForm() {
+function ConnectForm({ dict }: { dict: Dictionary }) {
   return (
     <form
-      action={`${SOURCE_ORIGIN}/contact/`}
+      action={dict.connectMinds.href}
       className="flex w-full flex-col gap-3 sm:flex-row min-[1025px]:w-[80%]"
-      aria-label="Connect"
+      aria-label={dict.hero.connect}
     >
       <input
         type="email"
         name="email"
-        aria-label="Email"
+        aria-label={dict.hero.email}
         className="h-12 w-full rounded-[3px] border border-rg-blue bg-white px-4 font-poppins text-base text-rg-blue outline-none sm:w-[62%]"
       />
       <button
         type="submit"
         className="h-[50px] w-full rounded-[3px] border border-white bg-rg-green px-6 font-figtree text-base text-white transition-colors hover:bg-rg-green-dark sm:w-[37%]"
       >
-        Connect
+        {dict.hero.connect}
       </button>
     </form>
   );
 }
 
-export function HeroCarousel() {
+export function HeroCarousel({ dict }: { dict: Dictionary }) {
   const [index, setIndex] = useState(0);
   const count = heroSlides.length;
   const go = (delta: number) => setIndex((i) => (i + delta + count) % count);
@@ -37,7 +38,7 @@ export function HeroCarousel() {
     <section
       className="relative overflow-hidden"
       aria-roledescription="carousel"
-      aria-label="Service Showcase"
+      aria-label={dict.carousel.label}
     >
       <div
         className="flex transition-transform duration-500 ease-out"
@@ -59,7 +60,7 @@ export function HeroCarousel() {
                   slide.title,
                 )}
               >
-                Elevate Your Digital Experience
+                {dict.hero.title}
               </h2>
               <h5
                 className={cn(
@@ -67,11 +68,10 @@ export function HeroCarousel() {
                   slide.subtitle,
                 )}
               >
-                Transform your ideas into stunning visuals and strategies that
-                drive results.
+                {dict.hero.subtitle}
               </h5>
               <div className="w-full max-w-[864px]">
-                <ConnectForm />
+                <ConnectForm dict={dict} />
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function HeroCarousel() {
 
       <button
         type="button"
-        aria-label="Previous slide"
+        aria-label={dict.carousel.previous}
         onClick={() => go(-1)}
         className="absolute left-[10px] top-[calc(50%-15px)] flex size-[54px] -translate-y-1/2 items-center justify-center rounded-full border border-rg-ink bg-rg-gray text-rg-ink min-[1025px]:left-[26px]"
       >
@@ -88,7 +88,7 @@ export function HeroCarousel() {
       </button>
       <button
         type="button"
-        aria-label="Next slide"
+        aria-label={dict.carousel.next}
         onClick={() => go(1)}
         className="absolute right-[10px] top-[calc(50%-15px)] flex size-[54px] -translate-y-1/2 items-center justify-center rounded-full border border-rg-ink bg-rg-gray text-rg-ink min-[1025px]:right-[26px]"
       >
@@ -100,7 +100,7 @@ export function HeroCarousel() {
           <button
             key={slide.image}
             type="button"
-            aria-label={`Go to slide ${i + 1}`}
+            aria-label={`${dict.carousel.goTo} ${i + 1}`}
             onClick={() => setIndex(i)}
             className={cn(
               "size-2 rounded-full bg-black transition-opacity",

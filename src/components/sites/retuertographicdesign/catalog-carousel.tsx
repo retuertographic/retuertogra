@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { SOURCE_ORIGIN, catalog } from "./data";
+import { catalogImages, shopDetailsUrl } from "./data";
+import type { Dictionary } from "./i18n";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
 
 const AUTOPLAY_MS = 5000;
 
-export function CatalogCarousel() {
+export function CatalogCarousel({ dict }: { dict: Dictionary }) {
+  const catalog = dict.catalog.products.map((product, i) => ({ ...product, image: catalogImages[i] }));
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const count = catalog.length;
@@ -57,10 +59,10 @@ export function CatalogCarousel() {
                 {item.price}
               </h5>
               <a
-                href={`${SOURCE_ORIGIN}/shopx/`}
+                href={shopDetailsUrl}
                 className="mt-5 inline-block bg-rg-navy px-6 py-3 font-roboto text-base font-medium leading-6 text-white underline-offset-2 hover:underline"
               >
-                Details
+                {dict.catalog.details}
               </a>
             </div>
           ))}
@@ -69,7 +71,7 @@ export function CatalogCarousel() {
 
       <button
         type="button"
-        aria-label="Previous slide"
+        aria-label={dict.carousel.previous}
         onClick={() => go(-1)}
         className="absolute left-0 top-[200px] -translate-y-1/2 text-rg-text min-[1025px]:-left-[10px]"
       >
@@ -77,7 +79,7 @@ export function CatalogCarousel() {
       </button>
       <button
         type="button"
-        aria-label="Next slide"
+        aria-label={dict.carousel.next}
         onClick={() => go(1)}
         className="absolute right-0 top-[200px] -translate-y-1/2 text-rg-text min-[1025px]:-right-[15px]"
       >
@@ -89,7 +91,7 @@ export function CatalogCarousel() {
           <button
             key={item.title}
             type="button"
-            aria-label={`Go to slide ${i + 1}`}
+            aria-label={`${dict.carousel.goTo} ${i + 1}`}
             onClick={() => setIndex(i)}
             className={cn(
               "size-1.5 rounded-full bg-rg-blue transition-opacity",

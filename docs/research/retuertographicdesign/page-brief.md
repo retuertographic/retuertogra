@@ -40,3 +40,9 @@ All in `public/sites/retuertographicdesign/images/`, downloaded from `/wp-conten
 ## Deployment
 - Live: https://retuertographic.github.io/retuertogra/ (GitHub Pages, source "GitHub Actions").
 - `.github/workflows/deploy-pages.yml` builds the static export (`GITHUB_PAGES=true`, basePath from `actions/configure-pages`) and deploys on every push to `main`.
+
+## Languages
+- `/` English (base), `/es/` Spanish, `/de/` German. Copy lives in `src/components/sites/retuertographicdesign/i18n.ts`.
+- Spanish copy comes from the source's `/es/` page; the source has no German version, so German is translated from the English copy (legal/shop links fall back to the English source pages).
+- Each locale has its own root layout (`src/app/(en)` and `src/app/(i18n)/[lang]`) so `<html lang>` is correct; `app/global-not-found.tsx` serves the 404.
+- Language switchers stay where the source has them: header dropdown (desktop), flags under the logo (mobile) and the footer language list (WPML "Native (Translated)" labels).
