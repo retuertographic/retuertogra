@@ -1,22 +1,36 @@
 "use client";
 
-import { ArrowRight, Minus, Plus, Search } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Check, Minus, Plus, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import type { CategoryId, SolutionGroupId } from "@/shop/types";
 import { normalize, type ProductCardData, type SolutionGroupData } from "./card-data";
 import { ProductCard } from "./product-card";
-import { card, chip, Container, Eyebrow, IconCircle, text } from "./ui";
+import { btn, card, chip, Container, Eyebrow, IconCircle, type IconKey, text } from "./ui";
 
 type Copy = {
   search: { placeholder: string; label: string; all: string; noResults: string };
   products: { eyebrow: string; title: string; intro: string; link: { label: string; href: string } };
+  spotlight: { view: string; quote: string; quoteHref: string };
   solutions: { eyebrow: string; title: string; note: string };
+};
+
+export type ChipData = {
+  id: CategoryId;
+  label: string;
+  name: string;
+  description: string;
+  services: string[];
+  href: string;
+  icon: IconKey;
+  image?: string;
 };
 
 type Props = {
   copy: Copy;
-  chips: { id: CategoryId; label: string }[];
+  /** Filter chips; each carries the service summary shown when it is selected. */
+  chips: ChipData[];
   products: ProductCardData[];
   groups: SolutionGroupData[];
   /** Server-rendered category grid, placed between the search bar and the products. */
@@ -56,6 +70,7 @@ export function ShopCatalog({ copy, chips, products, groups, categories, steps }
   const visibleProducts = products.filter(matches);
   const visibleGroups = groups.map((g) => ({ ...g, items: g.items.filter(matches) })).filter((g) => g.items.length > 0);
   const filtering = category !== "all" || q !== "";
+  const selected = chips.find((c) => c.id === category);
 
   const empty = (
     <p className="rounded-[20px] border border-dashed border-line bg-white px-6 py-10 text-center font-figtree text-[15px] text-muted">
@@ -101,7 +116,8 @@ export function ShopCatalog({ copy, chips, products, groups, categories, steps }
         </Container>
       </div>
 
-      {categories}
+      {/* "All": category grid. A chip: that service's summary, right below the bar. */}
+      {selected ? <Spotlight data={selected} labels={copy.spotlight} /> : categories}
 
       {/* 5 · Products */}
       <section className="bg-surface py-10 min-[1025px]:py-24">
@@ -184,5 +200,42 @@ export function ShopCatalog({ copy, chips, products, groups, categories, steps }
         </Container>
       </section>
     </>
+  );
+}
+
+/** Summary of the selected service (replaces the category grid while a chip is active). */
+function Spotlight({ data, labels }: { data: ChipData; labels: { view: string; quote: string; quoteHref: string } }) {
+  return (
+    <section className="py-8 min-[1025px]:py-16" aria-live="polite">
+      <Container>
+        <div className="grid overflow-hidden rounded-[20px] border border-line bg-white min-[1025px]:grid-cols-[1.25fr_1fr]">
+          <div className="p-5 min-[1025px]:p-10">
+            <IconCircle name={data.icon} />
+            <h2 className={cn(text.h2, "mt-4 min-[1025px]:text-[34px]")}>{data.name}</h2>
+            <p className={cn(text.body, "mt-3")}>{data.description}</p>
+            <ul className="mt-5 grid gap-x-6 gap-y-2 min-[640px]:grid-cols-2">
+              {data.services.slice(0, 6).map((s) => (
+                <li key={s} className="flex gap-2.5 font-figtree text-[15px] leading-[1.5] text-ink">
+                  <Check className="mt-0.5 size-[18px] shrink-0 text-brand" strokeWidth={1.8} aria-hidden="true" />
+                  {s}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-col gap-3 min-[480px]:flex-row">
+              <a href={data.href} className={btn.primary}>
+                {labels.view}
+                <ArrowRight className="size-[18px]" aria-hidden="true" />
+              </a>
+              <a href={labels.quoteHref} className={btn.secondary}>{labels.quote}</a>
+            </div>
+          </div>
+          {data.image && (
+            <div className="relative hidden min-h-[320px] min-[1025px]:block">
+              <Image src={data.image} alt="" fill sizes="500px" className="object-cover" />
+            </div>
+          )}
+        </div>
+      </Container>
+    </section>
   );
 }

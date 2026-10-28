@@ -195,9 +195,19 @@ export function ShopHomePage({ locale, beforeCta }: { locale: Locale; beforeCta?
             intro: t.featuredIntro,
             link: { label: ui.viewCatalog, href: shopRouteHref(locale, { type: "products" }) },
           },
+          spotlight: { view: ui.viewServices, quote: ui.cta.quote, quoteHref: quoteHref(locale) },
           solutions: { eyebrow: t.customTitle, title: t.customHeading, note: t.customNote },
         }}
-        chips={categories.map((c) => ({ id: c.id, label: categoryCopy[c.id].chip }))}
+        chips={categories.map((c) => ({
+          id: c.id,
+          label: categoryCopy[c.id].chip,
+          name: categoryCopy[c.id].name,
+          description: categoryCopy[c.id].description,
+          services: categoryCopy[c.id].services,
+          href: shopRouteHref(locale, { type: "category", id: c.id }),
+          icon: c.icon,
+          image: c.image,
+        }))}
         products={products.filter((p) => p.featured).map((p) => productCardData(locale, p))}
         groups={solutionGroupsData(locale)}
         categories={<Categories locale={locale} />}
