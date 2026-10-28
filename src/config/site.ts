@@ -38,7 +38,11 @@ export const BUSINESS = {
 /** WooCommerce checkout. Buy buttons link to `${WOO_ORIGIN}/product/<slug>/`. */
 export const WOO_ORIGIN = process.env.NEXT_PUBLIC_WOO_ORIGIN || SOURCE_ORIGIN;
 export const wooProductUrl = (slug: string) => `${WOO_ORIGIN}/product/${slug}/`;
-export const wooCartUrl = `${WOO_ORIGIN}/cart/`;
+/**
+ * WooCommerce product grid where orders are paid. The header cart icon links
+ * here (never to an empty cart page on this site).
+ */
+export const wooShopUrl = `${WOO_ORIGIN}/shop/`;
 
 /**
  * CRM forms (crmapi.retuertographicdesign.com/form/<id>), one per locale.

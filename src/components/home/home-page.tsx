@@ -1,24 +1,13 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
-import { mainMenu } from "@/components/layout/main-menu";
-import { quoteHref } from "@/components/shop/links";
-import { shopCopy } from "@/shop/i18n";
+import { BlogTeaser } from "@/components/blog/blog-pages";
+import { PageShell } from "@/components/layout/page-shell";
+import { JsonLd } from "@/components/shop/json-ld";
+import { ShopHomePage } from "@/components/shop/shop-home";
+import { organizationJsonLd } from "@/components/shop/structured-data";
 import { SITE_ORIGIN } from "@/config/site";
 import { type Locale, localeConfig, locales } from "@/i18n/config";
 import { dictionaries } from "@/i18n/dictionaries";
 import { siteHref } from "@/i18n/routing";
-import { HeroCarousel } from "./hero-carousel";
-import {
-  CatalogSection,
-  ConnectMindsSection,
-  ConnectingExperiencesSection,
-  ExpertiseSection,
-  FeaturedWorkSection,
-  LetsConnectSection,
-  NewsletterSection,
-  WhatWeDoSection,
-} from "./sections";
 
 const homeAlternates = () =>
   Object.fromEntries(locales.map((l) => [l, siteHref(l)])) as Record<Locale, string>;
@@ -45,27 +34,12 @@ export function homeMetadata(locale: Locale): Metadata {
   };
 }
 
+/** Home: the shop home layout plus the blog / glossary block before the final CTA. */
 export function HomePage({ locale }: { locale: Locale }) {
-  const dict = dictionaries[locale];
-  const alternates = homeAlternates();
-  const homeHref = siteHref(locale);
   return (
-    <>
-      <SiteHeader locale={locale} nav={dict.nav} strings={dict.header} homeHref={homeHref} alternates={alternates} menu={mainMenu(locale)} quote={{ href: quoteHref(locale), label: shopCopy[locale].ui.quoteShort }} />
-      <main className="overflow-x-hidden">
-        <div className="pb-[60px] min-[1025px]:pb-[112px]">
-          <HeroCarousel dict={dict} />
-        </div>
-        <ExpertiseSection dict={dict} />
-        <WhatWeDoSection dict={dict} />
-        <ConnectMindsSection dict={dict} />
-        <FeaturedWorkSection dict={dict} />
-        <CatalogSection dict={dict} locale={locale} />
-        <NewsletterSection dict={dict} />
-        <ConnectingExperiencesSection dict={dict} />
-        <LetsConnectSection dict={dict} />
-      </main>
-      <SiteFooter locale={locale} strings={dict.footer} homeHref={homeHref} alternates={alternates} />
-    </>
+    <PageShell locale={locale} alternates={homeAlternates()} activeHref={siteHref(locale)}>
+      <ShopHomePage locale={locale} beforeCta={<BlogTeaser locale={locale} />} />
+      <JsonLd data={organizationJsonLd(locale)} />
+    </PageShell>
   );
 }

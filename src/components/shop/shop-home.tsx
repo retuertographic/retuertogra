@@ -179,7 +179,8 @@ export function ShopCta({ locale }: { locale: Locale }) {
   );
 }
 
-export function ShopHomePage({ locale }: { locale: Locale }) {
+/** Shop home; the site home reuses it and adds the blog block through `beforeCta`. */
+export function ShopHomePage({ locale, beforeCta }: { locale: Locale; beforeCta?: React.ReactNode }) {
   const { ui, pages, categories: categoryCopy } = shopCopy[locale];
   const t = pages.home;
   return (
@@ -202,6 +203,7 @@ export function ShopHomePage({ locale }: { locale: Locale }) {
         categories={<Categories locale={locale} />}
         steps={<Steps locale={locale} />}
       />
+      {beforeCta}
       <ShopCta locale={locale} />
     </>
   );

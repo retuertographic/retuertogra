@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, XTwitterIcon } from "@/components/layout/icons";
-import type { Alternates } from "@/components/layout/site-header";
 import { ASSET_BASE, BUSINESS, SOCIAL_LINKS, mapAddress } from "@/config/site";
 import { type Locale, locales } from "@/i18n/config";
 import { dictionaries } from "@/i18n/dictionaries";
-import { siteHref } from "@/i18n/routing";
+import { type Alternates, siteHref } from "@/i18n/routing";
+import { blogHref, blogUi, glossaryHref } from "@/blog/registry";
 import { cn } from "@/lib/utils";
 import { categories } from "@/shop/catalog";
 import { shopCopy } from "@/shop/i18n";
@@ -67,7 +67,11 @@ export function ShopFooter({ locale, alternates }: { locale: Locale; alternates:
         <div>
           <h2 className={heading}>{footer.information}</h2>
           <ul className="mt-4 space-y-2">
-            {footer.infoLinks.map((l) => (
+            {[
+              { label: blogUi[locale].blog, href: blogHref(locale) },
+              { label: blogUi[locale].glossary.name, href: glossaryHref(locale) },
+              ...footer.infoLinks,
+            ].map((l) => (
               <li key={l.href}>
                 <a href={l.href} className={link}>
                   {l.label}

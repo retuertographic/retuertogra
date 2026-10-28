@@ -1,21 +1,22 @@
 import { notFound } from "next/navigation";
 import { fontVariables } from "@/components/layout/fonts";
 import { allSegments, resolveSegment } from "@/i18n/routing";
+import { englishBlogSegments } from "@/blog/registry";
 import { englishLegalSegments } from "@/legal/registry";
 import "../../globals.css";
 
 // Root layout for every prefixed area: /es and /de (main site), /shop, /tienda,
-// /laden (shop) and the English legal pages (/privacy-policy…). The segment
+// /laden (shop) and the English legal, blog and glossary pages (/privacy-policy, /blog…). The segment
 // decides <html lang>.
 export function generateStaticParams() {
-  return [...allSegments(), ...englishLegalSegments()].map((segment) => ({ segment }));
+  return [...allSegments(), ...englishLegalSegments(), ...englishBlogSegments()].map((segment) => ({ segment }));
 }
 
 export const dynamicParams = false;
 
 export default async function SegmentRootLayout({ children, params }: LayoutProps<"/[segment]">) {
   const { segment } = await params;
-  const resolved = resolveSegment(segment) ?? (englishLegalSegments().includes(segment) ? { locale: "en" } : null);
+  const resolved = resolveSegment(segment) ?? ([...englishLegalSegments(), ...englishBlogSegments()].includes(segment) ? { locale: "en" } : null);
   if (!resolved) notFound();
 
   return (

@@ -3,6 +3,9 @@ import { type Locale, localeConfig, locales } from "./config";
 
 export type Area = "site" | "shop";
 
+/** URL of the current page in every locale (drives the language switcher and hreflang). */
+export type Alternates = Record<Locale, string>;
+
 /** Locale and area served under a first URL segment (/es, /tienda, /laden…). */
 export function resolveSegment(segment: string): { locale: Locale; area: Area } | null {
   for (const locale of locales) {

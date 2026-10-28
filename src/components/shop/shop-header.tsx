@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { ChevronDown, Menu, Search, ShoppingCart, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import type { Alternates } from "@/components/layout/site-header";
-import { ASSET_BASE, wooCartUrl } from "@/config/site";
+import { ASSET_BASE, wooShopUrl } from "@/config/site";
 import { type Locale, localeConfig, locales } from "@/i18n/config";
 import type { NavItem } from "@/i18n/dictionaries";
+import type { Alternates } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { btn } from "./ui";
@@ -25,24 +25,57 @@ type ShopHeaderProps = {
   quoteHref: string;
   searchHref: string;
   strings: { switchTo: string; cart: string; toggleMenu: string; quote: string; search: string };
-  /** Items in the WooCommerce cart (the cart lives on the WooCommerce site). */
-  cartCount?: number;
+  /** Desktop dropdown of the nav item whose href matches: latest articles + glossary. */
+  blogMenu: BlogMenu;
+};
+
+export type BlogMenu = {
+  href: string;
+  latestLabel: string;
+  allLabel: string;
+  glossary: { label: string; href: string };
+  posts: { title: string; href: string; category: string; image?: string; minutes: string }[];
 };
 
 const circle = "flex size-10 items-center justify-center rounded-full border border-line bg-white text-ink transition-colors hover:border-ink";
 
-function CartLink({ label, count, className }: { label: string; count: number; className?: string }) {
+/** Cart icon: goes straight to the WooCommerce product grid, where orders are paid. */
+function CartLink({ label, className }: { label: string; className?: string }) {
   return (
-    <a href={wooCartUrl} aria-label={`${label} (${count})`} className={cn("relative", className)}>
+    <a href={wooShopUrl} aria-label={label} title={label} className={className}>
       <ShoppingCart className="size-[18px]" strokeWidth={1.8} aria-hidden="true" />
-      <span className="absolute -right-1 -top-1 flex size-[18px] items-center justify-center rounded-full bg-brand font-figtree text-[10px] font-bold text-white">
-        {count}
-      </span>
     </a>
   );
 }
 
-export function ShopHeader({ locale, nav, menu, menuActiveHref, activeHref, homeHref, alternates, quoteHref, searchHref, strings, cartCount = 0 }: ShopHeaderProps) {
+/** Blog mega dropdown (desktop hover / keyboard focus): latest articles with thumbnails. */
+function BlogDropdown({ menu }: { menu: BlogMenu }) {
+  return (
+    <div className="w-[640px] rounded-2xl border border-line bg-white p-5 shadow-lg">
+      <p className="font-figtree text-xs font-bold uppercase tracking-[0.12em] text-brand-dark">{menu.latestLabel}</p>
+      <ul className="mt-3 grid grid-cols-3 gap-3">
+        {menu.posts.map((post) => (
+          <li key={post.href}>
+            <a href={post.href} className="group/post block rounded-xl p-1.5 transition-colors hover:bg-surface">
+              <span className="relative block aspect-[16/10] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_30%_20%,#a6d46a_0%,var(--brand)_45%,var(--brand-dark)_100%)]">
+                {post.image && <Image src={post.image} alt="" fill sizes="190px" className="object-cover transition-transform duration-300 group-hover/post:scale-[1.04]" />}
+              </span>
+              <span className="mt-2 block font-figtree text-[11px] font-bold uppercase tracking-[0.1em] text-brand-dark">{post.category}</span>
+              <span className="mt-1 line-clamp-3 block font-poppins text-sm font-semibold leading-snug text-ink group-hover/post:text-brand-dark">{post.title}</span>
+              <span className="mt-1 block font-figtree text-xs text-muted">{post.minutes}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-4 flex items-center justify-between border-t border-line pt-4 font-figtree text-sm font-semibold">
+        <a href={menu.href} className="text-brand-dark hover:text-ink">{menu.allLabel} →</a>
+        <a href={menu.glossary.href} className="text-ink hover:text-brand-dark">{menu.glossary.label} →</a>
+      </div>
+    </div>
+  );
+}
+
+export function ShopHeader({ locale, nav, menu, menuActiveHref, activeHref, homeHref, alternates, quoteHref, searchHref, strings, blogMenu }: ShopHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const current = localeConfig[locale];
@@ -126,6 +159,19 @@ export function ShopHeader({ locale, nav, menu, menuActiveHref, activeHref, home
               "relative flex h-full items-center gap-1 px-3 font-figtree text-[15px] font-medium transition-colors xl:px-4",
               active ? "text-brand-dark after:absolute after:inset-x-3 after:bottom-0 after:h-[3px] after:rounded-full after:bg-brand xl:after:inset-x-4" : "text-ink hover:text-brand-dark",
             );
+            if (item.href === blogMenu.href) {
+              return (
+                <div key={item.label} className="group relative h-full">
+                  <a href={item.href} className={link} aria-haspopup="true" aria-current={active ? "page" : undefined}>
+                    {item.label}
+                    <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
+                  </a>
+                  <div className="invisible absolute right-[-200px] top-full z-50 pt-2 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                    <BlogDropdown menu={blogMenu} />
+                  </div>
+                </div>
+              );
+            }
             if (!item.children?.length) {
               return (
                 <a key={item.label} href={item.href} className={link} aria-current={active ? "page" : undefined}>
@@ -156,7 +202,7 @@ export function ShopHeader({ locale, nav, menu, menuActiveHref, activeHref, home
         </nav>
         <div className="hidden items-center gap-3 min-[1025px]:flex">
           {langMenu}
-          <CartLink label={strings.cart} count={cartCount} className={circle} />
+          <CartLink label={strings.cart} className={circle} />
           <a href={quoteHref} className={cn(btn.primary, "h-11 px-5")}>
             {strings.quote}
           </a>
@@ -168,7 +214,7 @@ export function ShopHeader({ locale, nav, menu, menuActiveHref, activeHref, home
             <Search className="size-[18px]" strokeWidth={1.8} aria-hidden="true" />
           </a>
           {langMenu}
-          <CartLink label={strings.cart} count={cartCount} className={circle} />
+          <CartLink label={strings.cart} className={circle} />
           <button
             type="button"
             aria-label={strings.toggleMenu}
