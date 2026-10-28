@@ -10,7 +10,7 @@ import { ProductCard } from "./product-card";
 import { btn, card, chip, Container, Eyebrow, IconCircle, type IconKey, text } from "./ui";
 
 type Copy = {
-  search: { placeholder: string; label: string; all: string; noResults: string };
+  search: { placeholder: string; label: string; all: string; noResults: string; results: string; result: string };
   products: { eyebrow: string; title: string; intro: string; link: { label: string; href: string } };
   spotlight: { view: string; quote: string; quoteHref: string };
   solutions: { eyebrow: string; title: string; note: string };
@@ -31,7 +31,10 @@ type Props = {
   copy: Copy;
   /** Filter chips; each carries the service summary shown when it is selected. */
   chips: ChipData[];
+  /** Featured products (the "most requested" grid). */
   products: ProductCardData[];
+  /** Whole catalogue, searched by the search box. */
+  allProducts: ProductCardData[];
   groups: SolutionGroupData[];
   /** Server-rendered category grid, placed between the search bar and the products. */
   categories: React.ReactNode;
@@ -43,7 +46,7 @@ type Props = {
  * Search bar + category chips (spec #4) that filter the product grid and the
  * custom solutions on the client.
  */
-export function ShopCatalog({ copy, chips, products, groups, categories, steps }: Props) {
+export function ShopCatalog({ copy, chips, products, allProducts, groups, categories, steps }: Props) {
   const [category, setCategory] = useState<CategoryId | "all">("all");
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
@@ -64,13 +67,16 @@ export function ShopCatalog({ copy, chips, products, groups, categories, steps }
   }, []);
 
   const q = normalize(query.trim());
+  // Every word must appear (in any order): "carta tpv" finds "Sincronización de carta y TPV".
+  const words = q.split(/\s+/).filter(Boolean);
   const matches = (item: { category: CategoryId; search: string }) =>
-    (category === "all" || item.category === category) && (!q || item.search.includes(q));
+    (category === "all" || item.category === category) && words.every((w) => item.search.includes(w));
 
   const visibleProducts = products.filter(matches);
   const visibleGroups = groups.map((g) => ({ ...g, items: g.items.filter(matches) })).filter((g) => g.items.length > 0);
   const filtering = category !== "all" || q !== "";
   const selected = chips.find((c) => c.id === category);
+  const results = q ? allProducts.filter(matches) : [];
 
   const empty = (
     <p className="rounded-[20px] border border-dashed border-line bg-white px-6 py-10 text-center font-figtree text-[15px] text-muted">
@@ -117,10 +123,34 @@ export function ShopCatalog({ copy, chips, products, groups, categories, steps }
       </div>
 
       {/* "All": category grid. A chip: that service's summary, right below the bar. */}
-      {selected ? <Spotlight data={selected} labels={copy.spotlight} /> : categories}
+      {q ? (
+        // Search: matching services from the whole catalogue, right below the bar.
+        <section className="py-8 min-[1025px]:py-16" aria-live="polite">
+          <Container>
+            <p className="font-poppins text-[17px] font-semibold text-ink min-[1025px]:text-[19px]">
+              {(results.length === 1 ? copy.search.result : copy.search.results).replace("{n}", String(results.length)).replace("{q}", query.trim())}
+            </p>
+            <div className="mt-5 min-[1025px]:mt-8">
+              {results.length ? (
+                <div className="grid gap-4 min-[640px]:grid-cols-2 min-[1025px]:grid-cols-3 min-[1025px]:gap-6">
+                  {results.map((p) => (
+                    <ProductCard key={p.id} data={p} />
+                  ))}
+                </div>
+              ) : (
+                empty
+              )}
+            </div>
+          </Container>
+        </section>
+      ) : selected ? (
+        <Spotlight data={selected} labels={copy.spotlight} />
+      ) : (
+        categories
+      )}
 
-      {/* 5 · Products */}
-      <section className="bg-surface py-10 min-[1025px]:py-24">
+      {/* 5 · Products (hidden while searching: the results above cover them) */}
+      <section className={cn("bg-surface py-10 min-[1025px]:py-24", q && "hidden")}>
         <Container>
           <div className="flex flex-col gap-4 min-[1025px]:flex-row min-[1025px]:items-end min-[1025px]:justify-between">
             <div className="max-w-[640px]">

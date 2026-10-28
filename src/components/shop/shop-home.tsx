@@ -209,6 +209,7 @@ export function ShopHomePage({ locale, beforeCta }: { locale: Locale; beforeCta?
           image: c.image,
         }))}
         products={products.filter((p) => p.featured).map((p) => productCardData(locale, p))}
+        allProducts={products.map((p) => productCardData(locale, p))}
         groups={solutionGroupsData(locale)}
         categories={<Categories locale={locale} />}
         steps={<Steps locale={locale} />}

@@ -43,7 +43,8 @@ export function PageShell({
         homeHref={siteHref(locale)}
         alternates={alternates}
         quoteHref={quoteHref(locale)}
-        searchHref={shopRouteHref(locale, { type: "home" }, "#buscar")}
+        // The home page has its own search box (same layout as the shop home).
+        searchHref={activeHref === siteHref(locale) ? `${siteHref(locale)}#buscar` : shopRouteHref(locale, { type: "home" }, "#buscar")}
         strings={{ ...dict.header, quote: ui.quoteShort, search: ui.search.open }}
         blogMenu={blogMenu(locale)}
       />

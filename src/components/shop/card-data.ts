@@ -69,7 +69,7 @@ export function productCardData(locale: Locale, product: Product): ProductCardDa
       tone: price.kind === "quote" ? "dark" : "brand",
     },
     action: price.kind === "quote" ? "arrow" : "cart",
-    search: normalize([text.name, text.shortName, text.summary, cat.name, cat.shortName].filter(Boolean).join(" ")),
+    search: normalize([text.name, text.shortName, text.summary, ...text.features, cat.name, cat.shortName, cat.chip].filter(Boolean).join(" ")),
   };
 }
 

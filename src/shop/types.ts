@@ -153,7 +153,7 @@ export type ShopUi = {
   /** Location shown in the hero eyebrow. */
   location: string;
   trust: { long: string; short: string }[];
-  search: { placeholder: string; label: string; open: string; all: string; noResults: string };
+  search: { placeholder: string; label: string; open: string; all: string; noResults: string; results: string; result: string };
   badges: { subscription: string; custom: string };
   viewServices: string;
   viewAllServices: string;
