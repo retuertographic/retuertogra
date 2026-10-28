@@ -137,7 +137,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
       <PageHead crumbs={[homeCrumb(locale), { label: ui.blog, href: blogHref(locale) }]} eyebrow={ui.eyebrow} title={ui.title} intro={ui.intro} />
       <section className="py-10 min-[1025px]:py-16">
         <Container>
-          <BlogBrowser posts={posts} labels={{ all: ui.all, filter: ui.eyebrow, noResults: ui.noResults }} />
+          <BlogBrowser posts={posts} labels={{ all: ui.all, filter: ui.eyebrow, noResults: ui.noResults, loadMore: ui.loadMore }} />
           <div className="mt-10 min-[1025px]:mt-14">
             <GlossaryTeaser locale={locale} />
           </div>

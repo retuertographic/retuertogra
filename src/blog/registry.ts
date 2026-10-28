@@ -42,6 +42,7 @@ export type BlogUi = {
   viewService: string;
   termsInArticle: string;
   noResults: string;
+  loadMore: string;
   home: { eyebrow: string; title: string; intro: string; viewAll: string };
   menu: { allPosts: string; latest: string };
   glossary: {
@@ -75,6 +76,7 @@ export const blogUi: Record<Locale, BlogUi> = {
     viewService: "Ver el servicio",
     termsInArticle: "Términos de este artículo",
     noResults: "No hay artículos en esta categoría todavía.",
+    loadMore: "Ver más artículos",
     home: {
       eyebrow: "Blog",
       title: "Ideas prácticas para tu negocio digital",
@@ -111,6 +113,7 @@ export const blogUi: Record<Locale, BlogUi> = {
     viewService: "View the service",
     termsInArticle: "Terms in this article",
     noResults: "There are no articles in this category yet.",
+    loadMore: "Show more articles",
     home: {
       eyebrow: "Blog",
       title: "Practical ideas for your digital business",
@@ -147,6 +150,7 @@ export const blogUi: Record<Locale, BlogUi> = {
     viewService: "Leistung ansehen",
     termsInArticle: "Begriffe in diesem Artikel",
     noResults: "In dieser Kategorie gibt es noch keine Artikel.",
+    loadMore: "Weitere Artikel anzeigen",
     home: {
       eyebrow: "Blog",
       title: "Praktische Ideen für Ihr digitales Geschäft",

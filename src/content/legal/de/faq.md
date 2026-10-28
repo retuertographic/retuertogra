@@ -36,25 +36,13 @@ Sicher haben Sie Fragen zu unseren Leistungen oder unserer Arbeitsweise. Dieser 
 
 Antworten auf Ihre technischen Fragen.
 
-### Wie setze ich mein Passwort zurück?
-
-Klicken Sie auf der Anmeldeseite auf „Passwort vergessen“. Folgen Sie den Anweisungen, um eine E-Mail mit der Anleitung zu erhalten. Prüfen Sie auch Ihren Spam-Ordner, falls die E-Mail nicht ankommt.
-
 ### Wann sind Ihre Servicezeiten?
 
 Unsere Servicezeiten sind montags bis freitags von 9 bis 15 Uhr. Innerhalb dieser Zeiten können Sie uns jederzeit kontaktieren.
 
-### Wie kann ich meine Bestellung verfolgen?
-
-Melden Sie sich in Ihrem Konto an und klicken Sie auf „Bestellverlauf“. Dort sehen Sie den Status aller Bestellungen und die verfügbaren Sendungsinformationen.
-
-### Kann ich meine Bestelldaten ändern?
-
-Wenn Sie Ihre Bestelldaten ändern möchten, wenden Sie sich bitte so schnell wie möglich an unser Support-Team. Änderungen sind möglich, solange die Bestellung bearbeitet wird; nach dem Versand können wir sie nicht mehr ändern.
-
 ### Welche Zahlungsarten akzeptieren Sie?
 
-Wir akzeptieren verschiedene Zahlungsarten, darunter die gängigen Kreditkarten (Visa, MasterCard, American Express), PayPal und Banküberweisung. Wählen Sie Ihre bevorzugte Zahlungsart beim Bezahlen.
+Wir akzeptieren Kredit- und Debitkarten (Visa, MasterCard, American Express) sowie Banküberweisung. Wählen Sie Ihre bevorzugte Zahlungsart beim Bezahlvorgang.
 
 ### Ist ein Kundenservice verfügbar?
 
@@ -62,7 +50,7 @@ Ja, unser Kundenservice-Team hilft Ihnen gerne. Sie erreichen uns per E-Mail, Te
 
 ### Wie beantrage ich eine Rückerstattung?
 
-Wenn Sie mit Ihrem Kauf nicht zufrieden sind, können Sie innerhalb von 30 Tagen eine Rückerstattung beantragen. Schreiben Sie uns mit Ihren Bestelldaten, und wir begleiten Sie durch den Ablauf.
+Physische Produkte können innerhalb von 14 Tagen zurückgegeben und erstattet werden. Schreiben Sie uns mit Ihren Kaufdaten, und wir begleiten Sie durch den Vorgang. Für digitale Leistungen und Auftragsarbeiten gelten unsere Allgemeinen Geschäftsbedingungen.
 
 ### Bieten Sie Mengenrabatte an?
 
@@ -71,10 +59,6 @@ Ja, wir bieten Mengenrabatte je nach Bestellmenge. Für weitere Informationen we
 ### Wie sieht Ihre Datenschutzerklärung aus?
 
 Unsere Datenschutzerklärung dient dem Schutz Ihrer personenbezogenen Daten. Wir verkaufen Ihre Daten nicht und geben sie ohne Ihre Einwilligung nicht an Dritte weiter. Die vollständige Erklärung finden Sie auf der Website. Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt wurden, können Sie Beschwerde bei der spanischen Datenschutzbehörde (AEPD) einlegen: C/ Jorge Juan, 6, 28001 Madrid, Spanien ([www.aepd.es](https://www.aepd.es)).
-
-### Kann ich meine Kontodaten ändern?
-
-Ja, Sie können Ihre Kontodaten jederzeit aktualisieren. Melden Sie sich an und öffnen Sie die „Kontoeinstellungen“, um Änderungen vorzunehmen.
 
 ### Was, wenn ich weitere Fragen habe?
 

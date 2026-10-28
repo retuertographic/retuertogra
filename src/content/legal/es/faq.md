@@ -36,25 +36,13 @@ Sabemos que puedes tener preguntas sobre nuestros servicios o sobre cómo trabaj
 
 Respuestas a tus dudas técnicas.
 
-### ¿Cómo restablezco mi contraseña?
-
-Para restablecer tu contraseña, haz clic en «¿Has olvidado tu contraseña?» en la pantalla de acceso. Sigue las indicaciones para recibir un correo con las instrucciones. Si no lo ves, revisa la carpeta de spam.
-
 ### ¿Cuál es vuestro horario de atención?
 
 Nuestro horario de atención es de lunes a viernes, de 9:00 a 15:00. Puedes contactarnos en cualquier momento dentro de ese horario.
 
-### ¿Cómo puedo seguir mi pedido?
-
-Puedes seguir tu pedido iniciando sesión en tu cuenta y haciendo clic en «Historial de pedidos». Verás el estado de todos tus pedidos y la información de seguimiento disponible.
-
-### ¿Puedo cambiar los datos de mi pedido?
-
-Si necesitas cambiar los datos de tu pedido, contacta con nuestro equipo de soporte lo antes posible. Los cambios pueden hacerse mientras el pedido se está procesando, pero una vez enviado no podemos modificarlo.
-
 ### ¿Qué métodos de pago aceptáis?
 
-Aceptamos varios métodos de pago, entre ellos las principales tarjetas de crédito (Visa, MasterCard, American Express), PayPal y transferencia bancaria. Elige tu método preferido al finalizar la compra.
+Aceptamos tarjetas de crédito y débito (Visa, MasterCard, American Express) y transferencia bancaria. Elige tu método preferido al finalizar la compra.
 
 ### ¿Hay atención al cliente disponible?
 
@@ -62,7 +50,7 @@ Sí, nuestro equipo de atención al cliente está aquí para ayudarte. Puedes co
 
 ### ¿Cómo solicito un reembolso?
 
-Si no estás satisfecho con tu compra, puedes solicitar un reembolso en un plazo de 30 días. Escríbenos con los datos de tu pedido y te guiaremos en el proceso.
+Los productos físicos se pueden devolver y reembolsar en un plazo de 14 días. Escríbenos con los datos de tu compra y te guiaremos en el proceso. Los servicios digitales y los trabajos a medida se rigen por lo indicado en los Términos y condiciones.
 
 ### ¿Ofrecéis descuentos por volumen?
 
@@ -71,10 +59,6 @@ Sí, ofrecemos descuentos por volumen según la cantidad adquirida. Para más in
 ### ¿Cuál es vuestra política de privacidad?
 
 Nuestra política de privacidad está diseñada para proteger tu información personal. No vendemos ni compartimos tus datos con terceros sin tu consentimiento. Puedes leer la política completa en la web. Si consideras que no se han atendido tus derechos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD): C/ Jorge Juan, 6, 28001 Madrid, España ([www.aepd.es](https://www.aepd.es)).
-
-### ¿Puedo modificar los datos de mi cuenta?
-
-Sí, puedes actualizar los datos de tu cuenta en cualquier momento. Inicia sesión y ve a «Ajustes de la cuenta» para hacer los cambios.
 
 ### ¿Y si tengo más preguntas?
 

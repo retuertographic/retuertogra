@@ -36,25 +36,13 @@ We know you might have some questions about our services or how we operate. This
 
 Get answers to your technical queries.
 
-### How do I reset my password?
-
-To reset your password, click on 'Forgot Password' at the login screen. Follow the prompts to receive an email with reset instructions. Be sure to check your spam folder if you don't see the email.
-
 ### What are your service hours?
 
 Our service hours are Monday through Friday, 9 AM to 3 PM. You can reach us at any time during those hours.
 
-### How can I track my order?
-
-You can track your order by logging into your account and clicking on 'Order History.' You'll see the status of all your orders and any tracking information available there.
-
-### Can I change my order details?
-
-If you need to change your order details, please contact our support team as soon as possible. Changes can be made while the order is still processing, but once shipped, we cannot modify it.
-
 ### What payment methods do you accept?
 
-We accept a variety of payment methods including major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. Select your preferred method during checkout.
+We accept credit and debit cards (Visa, MasterCard, American Express) and bank transfer. Select your preferred method at checkout.
 
 ### Is customer support available?
 
@@ -62,7 +50,7 @@ Yes, our customer support team is here to help you. You can reach out via email,
 
 ### How do I request a refund?
 
-If you're not satisfied with your purchase, you can request a refund within 30 days. Please contact us with your order details, and we'll guide you through the process.
+Physical products can be returned and refunded within 14 days. Contact us with your purchase details and we will guide you through the process. Digital services and custom work are governed by our Terms & Conditions.
 
 ### Do you offer bulk discounts?
 
@@ -71,10 +59,6 @@ Yes, we offer bulk discounts depending on the quantity purchased. For more detai
 ### What is your privacy policy?
 
 Our privacy policy is designed to protect your personal information. We do not sell or share your data with third parties without your consent. You can read our full policy on the website. If you believe your rights have not been respected, you can file a complaint with the Spanish Data Protection Agency (AEPD): C/ Jorge Juan, 6, 28001 Madrid, Spain ([www.aepd.es](https://www.aepd.es)).
-
-### Can I modify my account details?
-
-Yes, you can update your account details at any time. Simply log in to your account and navigate to 'Account Settings' to make changes.
 
 ### What if I have more questions?
 
