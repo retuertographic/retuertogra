@@ -23,6 +23,8 @@ primer segmento de la URL (`es`, `tienda`, `laden`…) decide idioma y área seg
 | Precios, imágenes, productos de WooCommerce | `src/shop/catalog.ts` |
 | Textos de la tienda (categorías, productos, botones) | `src/shop/i18n/{en,es,de}.ts` |
 | Email, teléfonos, WhatsApp, WooCommerce, formularios CRM, reservas | `src/config/site.ts` |
+| Textos legales y FAQ | `src/content/legal/{en,es,de}/*.md` (Markdown) |
+| URL, título y descripción de cada página legal | `src/legal/registry.ts` |
 
 ## Tareas habituales
 
@@ -34,6 +36,15 @@ primer segmento de la URL (`es`, `tienda`, `laden`…) decide idioma y área seg
   Mientras sea `null`, se muestran email, WhatsApp y teléfono.
 - **Añadir un idioma:** añádelo en `src/i18n/config.ts` (con sus segmentos de URL) y crea su diccionario en
   `src/i18n/dictionaries/` y sus textos en `src/shop/i18n/`. TypeScript señala todo lo que falta.
+
+## Páginas legales
+
+Privacidad, términos, cumplimiento, FAQ, aviso legal y cookies se escriben en Markdown, un archivo por idioma
+(`src/content/legal/<idioma>/<página>.md`). En inglés y español conservan las URL de la web WordPress
+(`/privacy-policy/`, `/es/cumplimiento/`…); en alemán usan URL propias (`/de/impressum/`…). Las páginas
+traducidas muestran un aviso de que prevalece la versión en español (`translated: true` en el registro).
+En la FAQ, cada pregunta es un título `###` y su respuesta el párrafo siguiente: así se generan los datos
+estructurados `FAQPage`.
 
 ## SEO
 

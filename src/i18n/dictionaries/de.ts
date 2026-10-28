@@ -1,5 +1,5 @@
-import { SOURCE_ORIGIN } from "@/config/site";
 import { shopHref, siteHref } from "../routing";
+import { legalFooterLinks } from "@/legal/registry";
 import type { Dictionary } from "./types";
 
 // The source site has no German version; translated from the English copy.
@@ -133,14 +133,7 @@ export const de: Dictionary = {
     shop: { label: "Shop", href: shopHref("de") },
     payments: "Zahlungsarten",
     information: "Informationen",
-    infoLinks: [
-      { label: "Datenschutzerklärung", href: `${SOURCE_ORIGIN}/privacy-policy/` },
-      { label: "AGB", href: `${SOURCE_ORIGIN}/t-c/` },
-      { label: "Compliance", href: `${SOURCE_ORIGIN}/compliance/` },
-      { label: "FAQ", href: `${SOURCE_ORIGIN}/faq/` },
-      { label: "Impressum", href: `${SOURCE_ORIGIN}/legal-notice/` },
-      { label: "Cookie-Richtlinie", href: `${SOURCE_ORIGIN}/cookie-policy/` },
-    ],
+    infoLinks: legalFooterLinks("de"),
     connect: "Kontakt",
     esPhone: "Telefon ES: 0034 922971723 (WhatsApp)",
     dePhone: "Telefon DE: 0049 30 31878629",

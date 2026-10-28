@@ -1,5 +1,5 @@
-import { SOURCE_ORIGIN } from "@/config/site";
 import { shopHref, siteHref } from "../routing";
+import { legalFooterLinks } from "@/legal/registry";
 import type { Dictionary } from "./types";
 
 export const en: Dictionary = {
@@ -131,14 +131,7 @@ export const en: Dictionary = {
     shop: { label: "Shop", href: shopHref("en") },
     payments: "Payments",
     information: "Information",
-    infoLinks: [
-      { label: "Privacy Policy", href: `${SOURCE_ORIGIN}/privacy-policy/` },
-      { label: "Terms of Service", href: `${SOURCE_ORIGIN}/t-c/` },
-      { label: "Complianz", href: `${SOURCE_ORIGIN}/compliance/` },
-      { label: "FAQ", href: `${SOURCE_ORIGIN}/faq/` },
-      { label: "Legal Notice", href: `${SOURCE_ORIGIN}/legal-notice/` },
-      { label: "Cookie Policy", href: `${SOURCE_ORIGIN}/cookie-policy/` },
-    ],
+    infoLinks: legalFooterLinks("en"),
     connect: "Connect",
     esPhone: "ES Phone: 0034 922971723 (whatsapp)",
     dePhone: "DE Phone: 0049 30 31878629",

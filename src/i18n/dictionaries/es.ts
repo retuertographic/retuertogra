@@ -1,5 +1,5 @@
-import { SOURCE_ORIGIN } from "@/config/site";
 import { shopHref, siteHref } from "../routing";
+import { legalFooterLinks } from "@/legal/registry";
 import type { Dictionary } from "./types";
 
 // Copy taken from https://retuertographicdesign.com/es/ (the source's Spanish version).
@@ -136,14 +136,7 @@ export const es: Dictionary = {
     shop: { label: "Tienda", href: shopHref("es") },
     payments: "Pagos",
     information: "Información",
-    infoLinks: [
-      { label: "Política de Privacidad", href: `${SOURCE_ORIGIN}/es/privacy-policy/` },
-      { label: "Condiciones de servicio", href: `${SOURCE_ORIGIN}/es/t-c/` },
-      { label: "Cumplimientos", href: `${SOURCE_ORIGIN}/es/cumplimiento/` },
-      { label: "FAQ", href: `${SOURCE_ORIGIN}/faq/` },
-      { label: "Aviso legal", href: `${SOURCE_ORIGIN}/es/legal-notice/` },
-      { label: "Política de cookies", href: `${SOURCE_ORIGIN}/es/cookie-policy/` },
-    ],
+    infoLinks: legalFooterLinks("es"),
     connect: "Conectar",
     esPhone: "ES-Teléfono: 0034 922971723 (whatsapp)",
     dePhone: "DE-Teléfono: 0049 30 31878629",
