@@ -380,7 +380,7 @@ Registernummer der Verarbeitungstätigkeiten: (falls zutreffend, Nummer angeben)
 **8.5.** Ist der Nutzer mit der Antwort nicht zufrieden, kann er Beschwerde bei der **spanischen Datenschutzbehörde (AEPD)** einlegen:
 
 - **Website:** www.aepd.es
-- **Anschrift:** c/ Jorge Juan, 6, 28001 Madrid, Spanien
+- **Anschrift:** C/ Jorge Juan, 6, 28001 Madrid, Spanien
 
 ## 9. INFORMATIONSSICHERHEIT
 

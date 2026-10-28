@@ -13,10 +13,10 @@ export const es: Dictionary = {
   anchors: { about: "sobre", services: "servicios", projects: "proyectos", contact: "contacto" },
   nav: [
     { label: "Inicio", href: siteHref("es") },
-    { label: "Sobre", href: "#sobre" },
-    { label: "Servicios", href: "#servicios" },
+    { label: "Sobre", href: siteHref("es", "#sobre") },
+    { label: "Servicios", href: siteHref("es", "#servicios") },
     { label: "Tienda", href: shopHref("es"), highlight: true },
-    { label: "Contacto", href: "#contacto" },
+    { label: "Contacto", href: siteHref("es", "#contacto") },
   ],
   header: {
     switchTo: "Cambiar a",

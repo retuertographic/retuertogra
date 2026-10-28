@@ -42,7 +42,7 @@ To reset your password, click on 'Forgot Password' at the login screen. Follow t
 
 ### What are your service hours?
 
-Our standard service hours are Monday through Friday, 9 AM to 5 PM. However, our support team is available 24/7 for critical issues. You can reach us at any time during those hours.
+Our service hours are Monday through Friday, 9 AM to 3 PM. You can reach us at any time during those hours.
 
 ### How can I track my order?
 
@@ -70,7 +70,7 @@ Yes, we offer bulk discounts depending on the quantity purchased. For more detai
 
 ### What is your privacy policy?
 
-Our privacy policy is designed to protect your personal information. We do not sell or share your data with third parties without your consent. You can read our full policy on the website.
+Our privacy policy is designed to protect your personal information. We do not sell or share your data with third parties without your consent. You can read our full policy on the website. If you believe your rights have not been respected, you can file a complaint with the Spanish Data Protection Agency (AEPD): C/ Jorge Juan, 6, 28001 Madrid, Spain ([www.aepd.es](https://www.aepd.es)).
 
 ### Can I modify my account details?
 

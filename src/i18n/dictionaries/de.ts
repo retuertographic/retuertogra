@@ -15,9 +15,9 @@ export const de: Dictionary = {
   nav: [
     { label: "Startseite", href: siteHref("de") },
     { label: "Shop", href: shopHref("de"), highlight: true },
-    { label: "Über uns", href: "#ueber-uns" },
-    { label: "Leistungen", href: "#leistungen" },
-    { label: "Kontakt", href: "#kontakt" },
+    { label: "Über uns", href: siteHref("de", "#ueber-uns") },
+    { label: "Leistungen", href: siteHref("de", "#leistungen") },
+    { label: "Kontakt", href: siteHref("de", "#kontakt") },
   ],
   header: { switchTo: "Wechseln zu", cart: "Warenkorb", toggleMenu: "Menü umschalten" },
   hero: {

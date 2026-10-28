@@ -7,6 +7,7 @@ import { ASSET_BASE, wooCartUrl } from "@/config/site";
 import { type Locale, localeConfig, locales } from "@/i18n/config";
 import type { Dictionary, NavItem } from "@/i18n/dictionaries";
 import { AngleDownIcon, BarsIcon, BasketIcon } from "./icons";
+import { MobileMenu } from "./mobile-menu";
 
 export type Alternates = Record<Locale, string>;
 
@@ -17,6 +18,9 @@ type SiteHeaderProps = {
   homeHref: string;
   /** URL of the current page in every locale (drives the language switcher). */
   alternates: Alternates;
+  /** Shared hamburger menu (see main-menu.ts). */
+  menu: NavItem[];
+  quote: { href: string; label: string };
 };
 
 function CartButton({ label }: { label: string }) {
@@ -68,7 +72,7 @@ function DesktopNavItem({ item, compact }: { item: NavItem; compact: boolean }) 
   );
 }
 
-export function SiteHeader({ locale, nav, strings, homeHref, alternates }: SiteHeaderProps) {
+export function SiteHeader({ locale, nav, strings, homeHref, alternates, menu, quote }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const current = localeConfig[locale];
@@ -170,31 +174,7 @@ export function SiteHeader({ locale, nav, strings, homeHref, alternates }: SiteH
         </div>
       </div>
 
-      {menuOpen && (
-        <nav className="absolute inset-x-0 top-[84px] max-h-[calc(100vh-84px)] overflow-y-auto bg-[#1b1e20] min-[1025px]:hidden">
-          {nav.map((item) => (
-            <div key={item.label}>
-              <a
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="block border-b border-white/10 px-6 py-3 font-figtree text-base text-white hover:text-rg-green"
-              >
-                {item.label}
-              </a>
-              {item.children?.map((child) => (
-                <a
-                  key={child.href}
-                  href={child.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block border-b border-white/5 py-2.5 pl-10 pr-6 font-figtree text-[15px] text-white/80 hover:text-rg-green"
-                >
-                  {child.label}
-                </a>
-              ))}
-            </div>
-          ))}
-        </nav>
-      )}
+      {menuOpen && <MobileMenu items={menu} quote={quote} onNavigate={() => setMenuOpen(false)} />}
     </header>
   );
 }

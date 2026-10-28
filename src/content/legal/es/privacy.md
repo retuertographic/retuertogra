@@ -8,7 +8,7 @@ Estos datos únicamente serán cedidos a aquellas entidades que sean necesarias 
 
 Ricardo Retuerto Barrera (Retuerto Graphic Design) adopta las medidas necesarias para garantizar la seguridad, integridad y confidencialidad de los datos conforme a lo dispuesto en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de los mismos.
 
-El usuario podrá en cualquier momento ejercitar los derechos de acceso, oposición, rectificación, cancelación, limitación y portabilidad reconocidos en el citado Reglamento (UE). El ejercicio de estos derechos puede realizarlo el propio usuario a través de email a: info@retuertographicdesign.com o en la dirección: Avenida Siete Islas Canarias , 34 Pol. Ind. Llano Del Camello,, C.P. 38639 – Las Chafiras (Santa Cruz De Tenerife).
+El usuario podrá en cualquier momento ejercitar los derechos de acceso, oposición, rectificación, cancelación, limitación y portabilidad reconocidos en el citado Reglamento (UE). El ejercicio de estos derechos puede realizarlo el propio usuario a través de email a: info@retuertographicdesign.com o en la dirección: C/ Calderón de la Barca, nº 2, of. 3, 38005 Santa Cruz de Tenerife.
 
 El usuario manifiesta que todos los datos facilitados por él son ciertos y correctos, y se compromete a mantenerlos actualizados, comunicando los cambios a Ricardo Retuerto Barrera (Retuerto Graphic Design)
 
@@ -44,6 +44,8 @@ En caso de que no nos facilites tus datos o lo hagas de forma errónea o incompl
 Los datos no se comunicarán a ningún tercero ajeno a Ricardo Retuerto Barrera (Retuerto Graphic Design), salvo obligación legal.
 
 Como encargados de tratamiento, tenemos contratados a los siguientes proveedores de servicios, habiéndose comprometido al cumplimiento de las disposiciones normativas, de aplicación en materia de protección de datos, en el momento de su contratación:
+
+- Google
 
 ## Datos recopilados por usuarios de los servicios
 

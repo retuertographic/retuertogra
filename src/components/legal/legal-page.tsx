@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { mainMenu } from "@/components/layout/main-menu";
+import { quoteHref } from "@/components/shop/links";
+import { shopCopy } from "@/shop/i18n";
 import { Breadcrumbs } from "@/components/shop/breadcrumbs";
 import { JsonLd } from "@/components/shop/json-ld";
 import { SITE_ORIGIN } from "@/config/site";
@@ -56,7 +59,7 @@ export function LegalPage({ locale, id }: { locale: Locale; id: LegalDocId }) {
 
   return (
     <>
-      <SiteHeader locale={locale} nav={dict.nav} strings={dict.header} homeHref={homeHref} alternates={alternates} />
+      <SiteHeader locale={locale} nav={dict.nav} strings={dict.header} homeHref={homeHref} alternates={alternates} menu={mainMenu(locale)} quote={{ href: quoteHref(locale), label: shopCopy[locale].ui.quoteShort }} />
       <main className="flex-1 overflow-x-hidden">
         <section className="bg-rg-gray py-10 min-[1025px]:py-14">
           <div className="mx-auto w-full max-w-[1280px] px-4 min-[1025px]:px-10">

@@ -382,7 +382,7 @@ Nº de Registro de Actividades de Tratamiento: (si procede, indicar número)
 8.5. En caso de no satisfacción con la respuesta, el usuario podrá presentar reclamación ante la Agencia Española de Protección de Datos (AEPD):
 
 - **Web:** www.aepd.es
-- **Correo:** C/ Jorge Juan, 6, 28001 Madrid, España
+- **Dirección:** C/ Jorge Juan, 6, 28001 Madrid, España
 
 ## 9. SEGURIDAD DE LA INFORMACIÓN
 

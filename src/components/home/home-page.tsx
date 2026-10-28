@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { mainMenu } from "@/components/layout/main-menu";
+import { quoteHref } from "@/components/shop/links";
+import { shopCopy } from "@/shop/i18n";
 import { SITE_ORIGIN } from "@/config/site";
 import { type Locale, localeConfig, locales } from "@/i18n/config";
 import { dictionaries } from "@/i18n/dictionaries";
@@ -48,7 +51,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   const homeHref = siteHref(locale);
   return (
     <>
-      <SiteHeader locale={locale} nav={dict.nav} strings={dict.header} homeHref={homeHref} alternates={alternates} />
+      <SiteHeader locale={locale} nav={dict.nav} strings={dict.header} homeHref={homeHref} alternates={alternates} menu={mainMenu(locale)} quote={{ href: quoteHref(locale), label: shopCopy[locale].ui.quoteShort }} />
       <main className="overflow-x-hidden">
         <div className="pb-[60px] min-[1025px]:pb-[112px]">
           <HeroCarousel dict={dict} />

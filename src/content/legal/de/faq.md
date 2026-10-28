@@ -42,7 +42,7 @@ Klicken Sie auf der Anmeldeseite auf „Passwort vergessen“. Folgen Sie den An
 
 ### Wann sind Ihre Servicezeiten?
 
-Unsere regulären Servicezeiten sind montags bis freitags von 9 bis 17 Uhr. Für kritische Störungen ist unser Support-Team jedoch rund um die Uhr erreichbar. Innerhalb dieser Zeiten können Sie uns jederzeit kontaktieren.
+Unsere Servicezeiten sind montags bis freitags von 9 bis 15 Uhr. Innerhalb dieser Zeiten können Sie uns jederzeit kontaktieren.
 
 ### Wie kann ich meine Bestellung verfolgen?
 
@@ -70,7 +70,7 @@ Ja, wir bieten Mengenrabatte je nach Bestellmenge. Für weitere Informationen we
 
 ### Wie sieht Ihre Datenschutzerklärung aus?
 
-Unsere Datenschutzerklärung dient dem Schutz Ihrer personenbezogenen Daten. Wir verkaufen Ihre Daten nicht und geben sie ohne Ihre Einwilligung nicht an Dritte weiter. Die vollständige Erklärung finden Sie auf der Website.
+Unsere Datenschutzerklärung dient dem Schutz Ihrer personenbezogenen Daten. Wir verkaufen Ihre Daten nicht und geben sie ohne Ihre Einwilligung nicht an Dritte weiter. Die vollständige Erklärung finden Sie auf der Website. Wenn Sie der Ansicht sind, dass Ihre Rechte nicht gewahrt wurden, können Sie Beschwerde bei der spanischen Datenschutzbehörde (AEPD) einlegen: C/ Jorge Juan, 6, 28001 Madrid, Spanien ([www.aepd.es](https://www.aepd.es)).
 
 ### Kann ich meine Kontodaten ändern?
 

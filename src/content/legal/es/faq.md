@@ -42,7 +42,7 @@ Para restablecer tu contraseña, haz clic en «¿Has olvidado tu contraseña?» 
 
 ### ¿Cuál es vuestro horario de atención?
 
-Nuestro horario habitual es de lunes a viernes, de 9:00 a 17:00. No obstante, nuestro equipo de soporte está disponible 24/7 para incidencias críticas. Puedes contactarnos en cualquier momento dentro de ese horario.
+Nuestro horario de atención es de lunes a viernes, de 9:00 a 15:00. Puedes contactarnos en cualquier momento dentro de ese horario.
 
 ### ¿Cómo puedo seguir mi pedido?
 
@@ -70,7 +70,7 @@ Sí, ofrecemos descuentos por volumen según la cantidad adquirida. Para más in
 
 ### ¿Cuál es vuestra política de privacidad?
 
-Nuestra política de privacidad está diseñada para proteger tu información personal. No vendemos ni compartimos tus datos con terceros sin tu consentimiento. Puedes leer la política completa en la web.
+Nuestra política de privacidad está diseñada para proteger tu información personal. No vendemos ni compartimos tus datos con terceros sin tu consentimiento. Puedes leer la política completa en la web. Si consideras que no se han atendido tus derechos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD): C/ Jorge Juan, 6, 28001 Madrid, España ([www.aepd.es](https://www.aepd.es)).
 
 ### ¿Puedo modificar los datos de mi cuenta?
 

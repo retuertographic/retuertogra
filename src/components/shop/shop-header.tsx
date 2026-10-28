@@ -8,11 +8,16 @@ import { ASSET_BASE, wooCartUrl } from "@/config/site";
 import { type Locale, localeConfig, locales } from "@/i18n/config";
 import type { NavItem } from "@/i18n/dictionaries";
 import { cn } from "@/lib/utils";
+import { MobileMenu } from "@/components/layout/mobile-menu";
 import { btn } from "./ui";
 
 type ShopHeaderProps = {
   locale: Locale;
   nav: NavItem[];
+  /** Shared hamburger menu (see main-menu.ts). */
+  menu: NavItem[];
+  /** Menu entry for the shop ("Tienda"), marked as current. */
+  menuActiveHref?: string;
   /** href of the nav item to mark as active (green underline). */
   activeHref?: string;
   homeHref: string;
@@ -37,7 +42,7 @@ function CartLink({ label, count, className }: { label: string; count: number; c
   );
 }
 
-export function ShopHeader({ locale, nav, activeHref, homeHref, alternates, quoteHref, searchHref, strings, cartCount = 0 }: ShopHeaderProps) {
+export function ShopHeader({ locale, nav, menu, menuActiveHref, activeHref, homeHref, alternates, quoteHref, searchHref, strings, cartCount = 0 }: ShopHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const current = localeConfig[locale];
@@ -100,7 +105,7 @@ export function ShopHeader({ locale, nav, activeHref, homeHref, alternates, quot
   );
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center gap-4 px-4 min-[1025px]:h-20 min-[1025px]:px-6">
         <a href={homeHref} className="shrink-0" aria-label="Retuerto Graphic Design">
           <Image
@@ -180,33 +185,7 @@ export function ShopHeader({ locale, nav, activeHref, homeHref, alternates, quot
       </div>
 
       {menuOpen && (
-        <nav className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-line bg-white px-4 pb-6 pt-2 shadow-lg min-[1025px]:hidden" aria-label="Main">
-          {nav.map((item) => (
-            <div key={item.label} className="border-b border-line last:border-0">
-              <a
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className={cn("block py-3.5 font-figtree text-base font-semibold", item.href === activeHref ? "text-brand-dark" : "text-ink")}
-              >
-                {item.label}
-              </a>
-              {item.children?.length ? (
-                <ul className="pb-3">
-                  {item.children.map((child) => (
-                    <li key={child.href}>
-                      <a href={child.href} onClick={() => setMenuOpen(false)} className="block py-2 pl-4 font-figtree text-[15px] text-muted hover:text-brand-dark">
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-          ))}
-          <a href={quoteHref} onClick={() => setMenuOpen(false)} className={cn(btn.primary, "mt-4 w-full")}>
-            {strings.quote}
-          </a>
-        </nav>
+        <MobileMenu items={menu} activeHref={menuActiveHref} quote={{ href: quoteHref, label: strings.quote }} onNavigate={() => setMenuOpen(false)} />
       )}
     </header>
   );

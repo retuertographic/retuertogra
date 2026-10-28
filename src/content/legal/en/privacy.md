@@ -8,7 +8,7 @@ These data will only be disclosed to those entities strictly necessary for the s
 
 Ricardo Retuerto Barrera (Retuerto Graphic Design) adopts the measures necessary to guarantee the security, integrity and confidentiality of the data in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data.
 
-Users may at any time exercise their rights of access, objection, rectification, erasure, restriction and portability recognised in the aforementioned Regulation (EU). Users may exercise these rights by email to info@retuertographicdesign.com or by post to: Avenida Siete Islas Canarias, 34, Pol. Ind. Llano del Camello, 38639 Las Chafiras (Santa Cruz de Tenerife).
+Users may at any time exercise their rights of access, objection, rectification, erasure, restriction and portability recognised in the aforementioned Regulation (EU). Users may exercise these rights by email to info@retuertographicdesign.com or by post to: C/ Calderón de la Barca, nº 2, of. 3, 38005 Santa Cruz de Tenerife, Spain.
 
 Users declare that all the data they provide are true and correct, and undertake to keep them up to date by communicating any changes to Ricardo Retuerto Barrera (Retuerto Graphic Design).
 
@@ -44,6 +44,8 @@ If you do not provide your data, or provide them incorrectly or incompletely, we
 Data will not be disclosed to any third party outside Ricardo Retuerto Barrera (Retuerto Graphic Design), except where required by law.
 
 As data processors, we have engaged the following service providers, who undertook to comply with the applicable data protection regulations when they were engaged:
+
+- Google
 
 ## Data collected by users of the services
 

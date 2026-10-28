@@ -211,17 +211,21 @@
 .legal-prose th { background: var(--color-rg-gray); font-weight: 600; color: var(--color-rg-ink); }
 
 /* ---- Shop UI (/shop, /tienda, /laden) ----
-   Spec variables are scoped here so they don't clash with the template's
-   shadcn tokens (e.g. --muted) used elsewhere. */
-.shop-ui {
+   Brand tokens are global so shared partials (the mobile menu) look the same
+   on the site and the shop. */
+:root {
   --brand: #84bc41;
   --brand-dark: #5b8c2a;
   --brand-soft: #eef6e4;
   --ink: #232323;
-  --muted: #6b6f76;
   --surface: #f5f5f1;
   --line: #e2e2db;
   --wa: #25d366;
+}
+
+.shop-ui {
+  /* --muted is also a shadcn token, so the shop value stays scoped. */
+  --muted: #6b6f76;
   color: var(--ink);
   background: #fff;
   font-family: var(--font-figtree), sans-serif;

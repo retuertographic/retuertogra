@@ -1,9 +1,10 @@
 import type { Locale } from "@/i18n/config";
 import { type NavItem, dictionaries } from "@/i18n/dictionaries";
-import { siteHref } from "@/i18n/routing";
+import { shopHref, siteHref } from "@/i18n/routing";
 import { categories } from "@/shop/catalog";
 import { shopCopy } from "@/shop/i18n";
 import { type ShopRoute, shopAlternates, shopRouteHref } from "@/shop/routes";
+import { mainMenu } from "@/components/layout/main-menu";
 import { quoteHref, whatsappHref } from "./links";
 import { MobileCtaBar } from "./mobile-cta-bar";
 import { ShopFooter } from "./shop-footer";
@@ -55,6 +56,8 @@ export function ShopShell({
       <ShopHeader
         locale={locale}
         nav={shopNav(locale)}
+        menu={mainMenu(locale)}
+        menuActiveHref={shopHref(locale)}
         activeHref={activeNavHref(locale, route)}
         homeHref={siteHref(locale)}
         alternates={alternates}
