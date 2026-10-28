@@ -9,11 +9,12 @@ import { dictionaries } from "@/i18n/dictionaries";
 import { type Alternates, siteHref } from "@/i18n/routing";
 import { shopCopy } from "@/shop/i18n";
 import { shopRouteHref } from "@/shop/routes";
+import { LiveChat } from "./live-chat";
 import { blogMenu, mainMenu, siteNav } from "./main-menu";
 
 /**
  * Page frame shared by every page: header (desktop nav + hamburger menu),
- * footer, mobile CTA bar and the glossary popover. Change it once here.
+ * footer, mobile CTA bar, glossary popover and CRM live chat. Change it once here.
  */
 export function PageShell({
   locale,
@@ -52,6 +53,7 @@ export function PageShell({
       <ShopFooter locale={locale} alternates={alternates} />
       <MobileCtaBar quoteHref={quoteHref(locale)} quoteLabel={ui.quoteShort} whatsappHref={whatsappHref(whatsappText ?? ui.whatsappMessage)} />
       <GlossaryPopover labels={{ see: blogUi[locale].glossary.seeInGlossary, close: blogUi[locale].glossary.close }} />
+      <LiveChat />
     </div>
   );
 }

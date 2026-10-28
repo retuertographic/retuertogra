@@ -274,3 +274,9 @@
   .blog-prose h2 { font-size: 30px; }
   .blog-prose h3 { font-size: 21px; }
 }
+
+/* CRM live chat button (components/layout/live-chat.tsx): on mobile, sit above
+   the fixed "Quote | WhatsApp" bar instead of covering it. */
+@media (max-width: 1024px) {
+  #arcontactus.arcu-widget.arcu-message { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+}

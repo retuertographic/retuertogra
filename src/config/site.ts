@@ -55,6 +55,12 @@ export const crmFormIds: Record<Locale, string | null> = {
   de: null,
 };
 
+/**
+ * CRM live chat widget ("Contact us" button), loaded on every page by
+ * components/layout/live-chat.tsx. `null` disables it.
+ */
+export const LIVE_CHAT_WIDGET_URL: string | null = `${CRM_ORIGIN}/widget/d5825ee3-c6e5-3a52-a228-7b2123cdc7ea`;
+
 /** Meeting booking page (Calendly, CRM calendar…). `null` falls back to the contact page. */
 export const BOOKING_URL: string | null = null;
 
