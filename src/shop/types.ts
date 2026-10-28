@@ -53,9 +53,14 @@ export type Product = {
   /** WooCommerce products where the purchase happens (slug of /product/<slug>/). */
   woo?: { slug: string; amount: number; period?: BillingPeriod }[];
   image?: string;
+  /** Icon for the image placeholder when there is no photo (defaults to the category icon). */
+  icon?: "mail" | "trending";
   /** Shown on the shop home and in the main-site catalog. */
   featured?: boolean;
 };
+
+export const solutionGroupIds = ["automation", "apps", "web-geo", "marketing-design"] as const;
+export type SolutionGroupId = (typeof solutionGroupIds)[number];
 
 export type Category = {
   id: CategoryId;
@@ -68,6 +73,12 @@ export type Category = {
 export type CategoryCopy = {
   slug: string;
   name: string;
+  /** Short label for cards, menus and the footer. */
+  shortName: string;
+  /** Filter chip label. */
+  chip: string;
+  /** One short line for the compact category cards. */
+  shortSummary: string;
   /** One sentence for cards and meta descriptions. */
   summary: string;
   /** Commercial description shown on the category page. */
@@ -78,6 +89,8 @@ export type CategoryCopy = {
 export type ProductCopy = {
   slug: string;
   name: string;
+  /** Short name for lists (solutions, hero price cards). Defaults to `name`. */
+  shortName?: string;
   summary: string;
   problem: string;
   features: string[];
@@ -135,6 +148,20 @@ export type ShopUi = {
     whatsapp: string;
     phone: string;
   };
+  /** Short "Request a quote" label for the header and mobile bar. */
+  quoteShort: string;
+  /** Location shown in the hero eyebrow. */
+  location: string;
+  trust: { long: string; short: string }[];
+  search: { placeholder: string; label: string; open: string; all: string; noResults: string };
+  badges: { subscription: string; custom: string };
+  viewServices: string;
+  viewAllServices: string;
+  viewCatalog: string;
+  featuredEyebrow: string;
+  ctaEyebrow: string;
+  steps: { title: string; items: { title: string; body: string }[] };
+  solutionGroups: Record<SolutionGroupId, string>;
   /** Prefilled WhatsApp text. */
   whatsappMessage: string;
   /** Prefilled WhatsApp text on a product page; "{product}" is replaced. */
@@ -147,14 +174,17 @@ export type ShopPageCopy = {
     metaTitle: string;
     metaDescription: string;
     eyebrow: string;
-    title: string;
+    /** Hero title, split so the second part can be highlighted. */
+    titleLead: string;
+    titleAccent: string;
     intro: string;
     categoriesTitle: string;
     categoriesIntro: string;
     featuredTitle: string;
     featuredIntro: string;
     customTitle: string;
-    customIntro: string;
+    customHeading: string;
+    customNote: string;
     ctaTitle: string;
     ctaBody: string;
   };

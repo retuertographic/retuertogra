@@ -1,13 +1,13 @@
-import { MessageCircle } from "lucide-react";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
 import type { Locale } from "@/i18n/config";
 import { type NavItem, dictionaries } from "@/i18n/dictionaries";
 import { siteHref } from "@/i18n/routing";
 import { categories } from "@/shop/catalog";
 import { shopCopy } from "@/shop/i18n";
 import { type ShopRoute, shopAlternates, shopRouteHref } from "@/shop/routes";
-import { whatsappHref } from "./links";
+import { quoteHref, whatsappHref } from "./links";
+import { MobileCtaBar } from "./mobile-cta-bar";
+import { ShopFooter } from "./shop-footer";
+import { ShopHeader } from "./shop-header";
 
 /** Shop menu, built from the catalog so new categories appear automatically. */
 export function shopNav(locale: Locale): NavItem[] {
@@ -30,6 +30,12 @@ export function shopNav(locale: Locale): NavItem[] {
   ];
 }
 
+function activeNavHref(locale: Locale, route: ShopRoute): string {
+  if (route.type === "products") return shopRouteHref(locale, { type: "products" });
+  if (route.type === "contact") return shopRouteHref(locale, { type: "contact" });
+  return shopRouteHref(locale, { type: "home" }); // "Services"
+}
+
 export function ShopShell({
   locale,
   route,
@@ -44,22 +50,21 @@ export function ShopShell({
   const dict = dictionaries[locale];
   const { ui } = shopCopy[locale];
   const alternates = shopAlternates(route);
-  const home = shopRouteHref(locale, { type: "home" });
   return (
-    <>
-      <SiteHeader locale={locale} nav={shopNav(locale)} strings={dict.header} homeHref={siteHref(locale)} alternates={alternates} />
-      <main className="flex-1 overflow-x-hidden">{children}</main>
-      <SiteFooter locale={locale} strings={{ ...dict.footer, shop: { label: dict.footer.shop.label, href: home } }} homeHref={siteHref(locale)} alternates={alternates} />
-      <a
-        href={whatsappHref(whatsappText ?? ui.whatsappMessage)}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={ui.floatingWhatsapp}
-        title={ui.floatingWhatsapp}
-        className="fixed bottom-5 right-5 z-40 flex size-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-lg transition-transform hover:scale-105"
-      >
-        <MessageCircle className="size-7" aria-hidden="true" />
-      </a>
-    </>
+    <div className="shop-ui flex min-h-full flex-1 flex-col">
+      <ShopHeader
+        locale={locale}
+        nav={shopNav(locale)}
+        activeHref={activeNavHref(locale, route)}
+        homeHref={siteHref(locale)}
+        alternates={alternates}
+        quoteHref={quoteHref(locale)}
+        searchHref={shopRouteHref(locale, { type: "home" }, "#buscar")}
+        strings={{ ...dict.header, quote: ui.quoteShort, search: ui.search.open }}
+      />
+      <main className="flex-1 overflow-x-clip">{children}</main>
+      <ShopFooter locale={locale} alternates={alternates} />
+      <MobileCtaBar quoteHref={quoteHref(locale)} quoteLabel={ui.quoteShort} whatsappHref={whatsappHref(whatsappText ?? ui.whatsappMessage)} />
+    </div>
   );
 }

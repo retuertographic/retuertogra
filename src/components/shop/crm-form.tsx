@@ -42,29 +42,29 @@ export function CrmForm({ locale, ui, whatsappText }: { locale: Locale; ui: Shop
     );
   }
 
-  const item = "flex items-center gap-3 rounded-[3px] border border-rg-ink/15 bg-white p-4 font-figtree text-base text-rg-ink transition-colors hover:border-rg-green";
+  const item = "flex items-center gap-3 rounded-[20px] border border-line bg-white p-4 font-figtree text-base text-ink transition-colors hover:border-brand";
   return (
     <div>
-      <p className="font-figtree text-base leading-6 text-rg-text">{ui.form.fallback}</p>
+      <p className="font-figtree text-base leading-6 text-muted">{ui.form.fallback}</p>
       <div className="mt-5 grid gap-3 sm:grid-cols-3">
         <a href={`mailto:${BUSINESS.email}`} className={item}>
-          <Mail className="size-5 shrink-0 text-rg-green" aria-hidden="true" />
+          <Mail className="size-5 shrink-0 text-brand-dark" aria-hidden="true" />
           <span>
-            <span className="block text-sm text-rg-text">{ui.form.email}</span>
+            <span className="block text-sm text-muted">{ui.form.email}</span>
             {BUSINESS.email}
           </span>
         </a>
         <a href={whatsappHref(whatsappText)} className={item} target="_blank" rel="noopener noreferrer">
           <MessageCircle className="size-5 shrink-0 text-[#25d366]" aria-hidden="true" />
           <span>
-            <span className="block text-sm text-rg-text">{ui.form.whatsapp}</span>
+            <span className="block text-sm text-muted">{ui.form.whatsapp}</span>
             +34 922 971 723
           </span>
         </a>
         <a href={`tel:${BUSINESS.phoneEs}`} className={item}>
-          <Phone className="size-5 shrink-0 text-rg-green" aria-hidden="true" />
+          <Phone className="size-5 shrink-0 text-brand-dark" aria-hidden="true" />
           <span>
-            <span className="block text-sm text-rg-text">{ui.form.phone}</span>
+            <span className="block text-sm text-muted">{ui.form.phone}</span>
             +34 922 971 723
           </span>
         </a>

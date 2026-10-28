@@ -49,6 +49,40 @@ export const de: ShopCopy = {
       whatsapp: "WhatsApp",
       phone: "Telefon",
     },
+    quoteShort: "Angebot anfordern",
+    location: "Teneriffa",
+    trust: [
+      { long: "Festpreis", short: "Festpreis" },
+      { long: "Unverbindliches Angebot", short: "Unverbindlich" },
+      { long: "Lokales Team auf Teneriffa", short: "Lokales Team" },
+    ],
+    search: {
+      placeholder: "Was braucht Ihr Unternehmen?",
+      label: "Leistungen suchen",
+      open: "Suchen",
+      all: "Alle",
+      noResults: "Keine Leistungen passen zu Ihrer Suche.",
+    },
+    badges: { subscription: "Abo", custom: "Individuell" },
+    viewServices: "Leistungen ansehen",
+    viewAllServices: "Alle Leistungen ansehen",
+    viewCatalog: "Gesamten Katalog ansehen",
+    featuredEyebrow: "Festpreis",
+    ctaEyebrow: "Sprechen wir",
+    steps: {
+      title: "So arbeiten wir",
+      items: [
+        { title: "Erzählen Sie uns Ihre Idee", body: "Per Formular, Termin oder WhatsApp. Ohne Fachchinesisch." },
+        { title: "Sie erhalten Ihr Angebot", body: "Umfang, Zeitplan und Festpreis schriftlich." },
+        { title: "Wir starten und betreuen", body: "Entwicklung, Inbetriebnahme und laufender Support." },
+      ],
+    },
+    solutionGroups: {
+      automation: "Automatisierung & KI",
+      apps: "Anwendungen",
+      "web-geo": "Web & Geolokalisierung",
+      "marketing-design": "Marketing & Design",
+    },
     whatsappMessage: "Hallo, ich hätte gerne Informationen zu Ihren Leistungen.",
     whatsappProductMessage: "Hallo, ich interessiere mich für „{product}“. Können Sie mir mehr dazu sagen?",
     floatingWhatsapp: "Per WhatsApp schreiben",
@@ -59,7 +93,8 @@ export const de: ShopCopy = {
       metaDescription:
         "KI-Automatisierung, Web- und Mobile-Apps, Webentwicklung, Marketing, Grafikdesign und Wartung. Leistungen zum Festpreis und individuelle Projekte.",
       eyebrow: "Shop für digitale Leistungen",
-      title: "Digitale Leistungen direkt buchen",
+      titleLead: "Digitale Leistungen",
+      titleAccent: "direkt buchen",
       intro:
         "Automatisierung, Apps, Weblösungen, Marketing, Grafikdesign und Videoproduktion. Buchen Sie Leistungen zum Festpreis oder fordern Sie ein Angebot für Ihr individuelles Projekt an.",
       categoriesTitle: "Kategorien",
@@ -67,7 +102,8 @@ export const de: ShopCopy = {
       featuredTitle: "Produkte mit festem Preis",
       featuredIntro: "Leistungen mit Fest- oder Richtpreis, sofort startklar.",
       customTitle: "Individuelle Lösungen",
-      customIntro: "Projekte, die wir an Ihr Unternehmen anpassen. Sie erhalten ein unverbindliches Angebot.",
+      customHeading: "Projekte, die wir an Ihr Unternehmen anpassen.",
+      customNote: "Sie erhalten ein unverbindliches Angebot.",
       ctaTitle: "Nicht das Richtige dabei?",
       ctaBody: "Erzählen Sie uns von Ihrer Idee – wir helfen bei Lösung, Umfang und Budget.",
     },
@@ -96,6 +132,9 @@ export const de: ShopCopy = {
     automation: {
       slug: "automatisierung",
       name: "Automatisierung und künstliche Intelligenz",
+      shortName: "Automatisierung & KI",
+      chip: "KI & Automatisierung",
+      shortSummary: "Weniger Handarbeit, vernetzte Tools.",
       summary: "Weniger Handarbeit, bessere interne Abläufe und vernetzte Unternehmenstools.",
       description:
         "Wir automatisieren wiederkehrende Aufgaben, damit Informationen ohne manuelle Schritte von einem System ins andere gelangen. Wir lesen Rechnungen und Lieferscheine, extrahieren ihre Daten und füllen Excel- oder CSV-Tabellen. Außerdem verbinden wir Formulare, E-Mails, Chats, Apps und interne Tools.",
@@ -117,6 +156,9 @@ export const de: ShopCopy = {
     apps: {
       slug: "web-und-mobile-anwendungen",
       name: "Web- und Mobile-Anwendungen",
+      shortName: "Web- & Mobile-Apps",
+      chip: "Apps",
+      shortSummary: "Lösungen für jede Branche.",
       summary: "Digitale Lösungen, zugeschnitten auf die Anforderungen jeder Branche.",
       description:
         "Wir entwickeln individuelle Web-, Mobile- und PWA-Anwendungen: Verwaltungs-Dashboards, Störungsmeldungen, Benutzer und Rechte, Geolokalisierung, digitale Formulare und Anbindungen an Ihre Datenbanken und externe Dienste.",
@@ -138,6 +180,9 @@ export const de: ShopCopy = {
     web: {
       slug: "webentwicklung",
       name: "Webentwicklung",
+      shortName: "Webentwicklung",
+      chip: "Websites",
+      shortSummary: "Schnelle Websites, Shops und Portale.",
       summary: "Schnelle, mobilfreundliche Unternehmenswebsites, Onlineshops, Portale und Kundenbereiche.",
       description:
         "Wir gestalten und entwickeln Unternehmenswebsites, Onlineshops, Serviceportale und Webanwendungen. Wir optimieren Geschwindigkeit und Benutzerfreundlichkeit, passen jedes Projekt an mobile Geräte an und kümmern uns um Wartung und Weiterentwicklung.",
@@ -159,6 +204,9 @@ export const de: ShopCopy = {
     geo: {
       slug: "geolokalisierung",
       name: "Geolokalisierung und Tourismus",
+      shortName: "Geolokalisierung & Tourismus",
+      chip: "Geolokalisierung",
+      shortSummary: "Video-Guides, Karten und Tracking.",
       summary: "Geolokalisierte Video-Guides, interaktive Karten und Standortverfolgung.",
       description:
         "Apps und digitale Guides, die Videos, Orte und nützliche Informationen verknüpfen, sowie Ortungs- und Tracking-Dienste für Fahrzeuge oder Objekte mit Kontrollzentrum und Berichten.",
@@ -176,6 +224,9 @@ export const de: ShopCopy = {
     pos: {
       slug: "kassen-integrationen",
       name: "Integration von Kassensystem, Speisekarten und Produktinhalten",
+      shortName: "Kasse, Speisekarten & Katalog",
+      chip: "Kasse",
+      shortSummary: "Ihre Speisekarte auf allen Kanälen synchron.",
       summary: "Speisekarte und Katalog synchron mit Ihrem Kassensystem – auf allen digitalen Kanälen.",
       description:
         "Wir halten Ihre Speisekarte oder Ihren Katalog synchron, damit Produkte, Preise und Beschreibungen auf allen digitalen Kanälen aktuell sind: Website, digitale Speisekarte, Kassensystem, CRM, SaaS oder ERP.",
@@ -194,6 +245,9 @@ export const de: ShopCopy = {
     marketing: {
       slug: "marketing-und-soziale-medien",
       name: "Marketing, soziale Medien und Videoproduktion",
+      shortName: "Marketing & Video",
+      chip: "Marketing",
+      shortSummary: "Inhalte, Videos und digitale Kampagnen.",
       summary: "Inhalte, Videos und digitale Kampagnen für das Wachstum Ihrer Marke.",
       description:
         "Wir erstellen visuelle Inhalte für soziale Medien und digitale Kampagnen – mit Material, das Sie uns zur Verfügung stellen, oder mit neuen Fotos und Videos, die wir bei Ihnen vor Ort produzieren.",
@@ -216,6 +270,9 @@ export const de: ShopCopy = {
     design: {
       slug: "grafikdesign",
       name: "Grafikdesign und visuelle Identität",
+      shortName: "Design & Identität",
+      chip: "Design",
+      shortSummary: "Logos, Marke und Grafiken.",
       summary: "Corporate Identity, Logos und Grafiken für Print und Digital.",
       description:
         "Wir entwickeln Corporate Identities und das gesamte grafische Material Ihrer Marke: Logos, Markenhandbücher, Plakate, Broschüren, Speisekarten, Präsentationen, Banner und visuelle Elemente für Websites und Apps.",
@@ -237,6 +294,9 @@ export const de: ShopCopy = {
     maintenance: {
       slug: "wartung-und-support",
       name: "Wartung und Support",
+      shortName: "Wartung & Support",
+      chip: "Wartung",
+      shortSummary: "Alles aktuell und einsatzbereit.",
       summary: "Website, Apps und Automatisierungen immer aktuell und einsatzbereit.",
       description:
         "Wir übernehmen die technische Wartung Ihrer digitalen Projekte: Sicherheitsupdates, Backups, Fehlerbehebung, Weiterentwicklungen und Support für Apps, Automatisierungen und Integrationen.",
@@ -260,6 +320,7 @@ export const de: ShopCopy = {
     "whatsapp-chatbot": {
       slug: "whatsapp-chatbot",
       name: "WhatsApp-Chatbot und Chat-CRM",
+      shortName: "WhatsApp-Chatbot + CRM",
       summary: "Beantworten, sortieren und verfolgen Sie Ihre WhatsApp- und Website-Gespräche in einem Dashboard.",
       problem:
         "Kundennachrichten kommen über verschiedene Kanäle, gehen verloren oder werden spät beantwortet – und Verkaufschancen werden nicht erfasst.",
@@ -298,6 +359,7 @@ export const de: ShopCopy = {
     "voice-agent": {
       slug: "ki-sprachagent",
       name: "KI-Sprachagent",
+      shortName: "KI-Sprachagent",
       summary: "Ein Telefonassistent, der Anrufe annimmt, Anfragen aufnimmt, Reservierungen verwaltet und an Ihr Team weiterleitet.",
       problem: "Verpasste Anrufe sind verlorene Kunden – und den ganzen Tag ans Telefon zu gehen kostet Ihr Team Zeit.",
       features: [
@@ -314,6 +376,7 @@ export const de: ShopCopy = {
     "invoice-automation": {
       slug: "rechnungen-lieferscheine-automatisierung",
       name: "Automatisierung von Rechnungen und Lieferscheinen",
+      shortName: "Rechnungen & Lieferscheine mit KI",
       summary: "KI liest Ihre Rechnungen und Lieferscheine und überträgt die Daten nach Excel, CSV oder in Ihr CRM.",
       problem:
         "Rechnungen und Lieferscheine von Hand abzutippen kostet jede Woche Stunden und führt zu Fehlern in Buchhaltung und Lager.",
@@ -330,6 +393,7 @@ export const de: ShopCopy = {
     "system-integrations": {
       slug: "systemintegrationen",
       name: "Integrationen und Prozessautomatisierung",
+      shortName: "Systemintegration",
       summary: "Wir verbinden Ihre Tools, damit Daten automatisch zwischen CRM, ERP, SaaS, E-Mail und Tabellen fließen.",
       problem: "Daten von einer Anwendung in die andere zu kopieren ist langsam, eintönig und eine ständige Fehlerquelle.",
       features: [
@@ -345,6 +409,7 @@ export const de: ShopCopy = {
     "bodyshop-app": {
       slug: "karosseriewerkstatt-app",
       name: "App für Karosserie- und Lackierwerkstätten",
+      shortName: "App für Karosseriewerkstätten",
       summary: "Organisieren und steuern Sie Ihre gesamte Werkstatt: Fahrzeuge, Kunden, Reparaturen, Kostenvoranschläge und Übergaben.",
       problem:
         "Ohne eigenes Tool werden Reparaturstatus, Fotos und Kostenvoranschläge auf Papier, in Nachrichten und auf losen Zetteln verwaltet.",
@@ -363,6 +428,7 @@ export const de: ShopCopy = {
     "citizen-incidents": {
       slug: "buergermeldungen-app",
       name: "App für Bürgermeldungen",
+      shortName: "Bürgermeldungen",
       summary: "Bürger melden Missstände mit Foto und Standort; Ihre Organisation sortiert, verteilt und erledigt sie in einem Dashboard.",
       problem:
         "Meldungen kommen per Telefon, E-Mail oder Social Media – ohne Standort und Fotos, und niemand weiß, wie der Stand ist.",
@@ -401,6 +467,7 @@ export const de: ShopCopy = {
     "custom-apps": {
       slug: "individuelle-apps",
       name: "Individuelle Web-, Mobile- und PWA-Apps",
+      shortName: "Web-, Mobile- & PWA-Apps",
       summary: "Wir entwickeln die App, die Ihr Unternehmen braucht – vom Prototyp bis zur Veröffentlichung.",
       problem: "Standardlösungen passen nicht zu Ihren Abläufen und zwingen zu Behelfslösungen.",
       features: [
@@ -416,6 +483,7 @@ export const de: ShopCopy = {
     "custom-website": {
       slug: "individuelle-website",
       name: "Individuelle Webentwicklung",
+      shortName: "Individuelle Webentwicklung",
       summary: "Schnelle Unternehmenswebsites, Onlineshops und Portale – mobilfreundlich und leicht zu pflegen.",
       problem: "Eine langsame, veraltete oder schwer zu pflegende Website kostet Kunden und Chancen.",
       features: [
@@ -431,6 +499,7 @@ export const de: ShopCopy = {
     "video-guide": {
       slug: "geolokalisierter-video-guide",
       name: "Geolokalisierter Video-Guide",
+      shortName: "Geolokalisierter Video-Guide",
       summary: "Ein digitaler Guide, der Videos, Orte und nützliche Informationen auf einer interaktiven Karte verbindet.",
       problem: "Touristische Informationen sind verstreut und verbinden Videoinhalte nicht mit dem Ort, an dem sich der Besucher befindet.",
       features: [
@@ -465,6 +534,7 @@ export const de: ShopCopy = {
     "menu-pos-sync": {
       slug: "speisekarten-kassen-sync",
       name: "Synchronisation von Speisekarte und Kassensystem",
+      shortName: "Speisekarte & Kasse synchron",
       summary: "Speisekarte und Preise immer aktuell auf Website, digitaler Speisekarte und Kasse.",
       problem: "Ein Preis wird an der Kasse geändert, auf der Website oder digitalen Speisekarte aber vergessen – das führt zu Fehlern und Beschwerden.",
       features: [
@@ -498,6 +568,7 @@ export const de: ShopCopy = {
     "seo-geo-llmo": {
       slug: "seo-geo-llmo",
       name: "Suchmaschinen- und Antwortmaschinen-Optimierung",
+      shortName: "SEO, GEO & LLMO",
       summary: "SEO, GEO und LLMO, damit Ihr Unternehmen bei Google und in den Antworten von KI-Assistenten erscheint.",
       problem: "Wenn Ihr Unternehmen weder in Suchmaschinen noch in KI-Antworten auftaucht, finden Ihre Kunden die Konkurrenz.",
       features: [
@@ -513,6 +584,7 @@ export const de: ShopCopy = {
     "social-content": {
       slug: "social-media-inhalte",
       name: "Social-Media-Management und Inhalte",
+      shortName: "Social Media",
       summary: "Wir planen, gestalten und veröffentlichen die Inhalte Ihrer sozialen Netzwerke.",
       problem: "Regelmäßig und hochwertig in sozialen Medien zu posten kostet Zeit, die viele Unternehmen nicht haben.",
       features: [
@@ -528,6 +600,7 @@ export const de: ShopCopy = {
     "video-production": {
       slug: "videoproduktion",
       name: "Videoproduktion",
+      shortName: "Videoproduktion",
       summary: "Dreharbeiten bei Ihnen vor Ort: Interviews, Produkte, Räume und Abläufe.",
       problem: "Ohne eigene Videos lässt sich kaum zeigen, was Ihr Unternehmen einzigartig macht.",
       features: [
@@ -543,6 +616,7 @@ export const de: ShopCopy = {
     "ad-campaigns": {
       slug: "werbekampagnen",
       name: "Digitale Werbekampagnen",
+      shortName: "Digitale Werbung",
       summary: "Ergebnisorientierte Kampagnen auf Google Ads, Meta Ads, TikTok Ads und LinkedIn Ads.",
       problem: "Werbung ohne Strategie und Messung bedeutet, Budget auszugeben, ohne zu wissen, was funktioniert.",
       features: [
@@ -557,6 +631,7 @@ export const de: ShopCopy = {
     "brand-identity": {
       slug: "markenidentitaet",
       name: "Corporate Identity und Grafikdesign",
+      shortName: "Corporate Identity",
       summary: "Logo, Markenhandbuch und alle Grafiken, die Ihr Unternehmen braucht.",
       problem: "Ein unprofessionelles oder uneinheitliches Erscheinungsbild kostet Vertrauen und macht Ihre Marke austauschbar.",
       features: [
@@ -572,6 +647,7 @@ export const de: ShopCopy = {
     "web-maintenance": {
       slug: "website-wartung",
       name: "Website-Wartung Basis",
+      shortName: "Website-Wartung",
       summary: "Updates, Sicherheit, Backups und Support, damit Ihre Website zuverlässig läuft.",
       problem: "Eine Website ohne Wartung hat irgendwann Fehler, Sicherheitslücken und Formulare, die nicht funktionieren.",
       features: [

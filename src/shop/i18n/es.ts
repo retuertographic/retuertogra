@@ -48,6 +48,40 @@ export const es: ShopCopy = {
       whatsapp: "WhatsApp",
       phone: "Teléfono",
     },
+    quoteShort: "Pedir presupuesto",
+    location: "Tenerife",
+    trust: [
+      { long: "Precio cerrado", short: "Precio cerrado" },
+      { long: "Propuesta sin compromiso", short: "Sin compromiso" },
+      { long: "Equipo local en Tenerife", short: "Equipo local" },
+    ],
+    search: {
+      placeholder: "¿Qué necesita tu negocio?",
+      label: "Buscar servicios",
+      open: "Buscar",
+      all: "Todo",
+      noResults: "No hay servicios que coincidan con tu búsqueda.",
+    },
+    badges: { subscription: "Suscripción", custom: "A medida" },
+    viewServices: "Ver servicios",
+    viewAllServices: "Ver todos los servicios",
+    viewCatalog: "Ver catálogo completo",
+    featuredEyebrow: "Precio definido",
+    ctaEyebrow: "Hablemos",
+    steps: {
+      title: "Cómo trabajamos",
+      items: [
+        { title: "Cuéntanos tu idea", body: "Por formulario, reunión o WhatsApp. Sin tecnicismos." },
+        { title: "Recibe tu propuesta", body: "Alcance, plazos y precio cerrado por escrito." },
+        { title: "Lanzamos y mantenemos", body: "Desarrollo, puesta en marcha y soporte continuo." },
+      ],
+    },
+    solutionGroups: {
+      automation: "Automatización e IA",
+      apps: "Aplicaciones",
+      "web-geo": "Web y geolocalización",
+      "marketing-design": "Marketing y diseño",
+    },
     whatsappMessage: "Hola, me gustaría recibir información sobre vuestros servicios.",
     whatsappProductMessage: "Hola, me interesa «{product}». ¿Podéis darme más información?",
     floatingWhatsapp: "Hablar por WhatsApp",
@@ -58,7 +92,8 @@ export const es: ShopCopy = {
       metaDescription:
         "Automatizaciones con IA, aplicaciones web y móviles, desarrollo web, marketing, diseño gráfico y mantenimiento. Servicios con precio cerrado y proyectos a medida.",
       eyebrow: "Tienda de servicios digitales",
-      title: "Servicios digitales listos para contratar",
+      titleLead: "Servicios digitales",
+      titleAccent: "listos para contratar",
       intro:
         "Automatizaciones, aplicaciones, soluciones web, marketing, diseño gráfico y producción audiovisual. Contrata servicios con precio cerrado o pide un presupuesto para tu proyecto a medida.",
       categoriesTitle: "Categorías",
@@ -66,7 +101,8 @@ export const es: ShopCopy = {
       featuredTitle: "Productos con precio definido",
       featuredIntro: "Servicios con tarifa cerrada u orientativa, listos para empezar.",
       customTitle: "Soluciones a medida",
-      customIntro: "Proyectos que adaptamos a tu actividad. Te preparamos una propuesta sin compromiso.",
+      customHeading: "Proyectos que adaptamos a tu actividad.",
+      customNote: "Te preparamos una propuesta sin compromiso.",
       ctaTitle: "¿No encuentras lo que buscas?",
       ctaBody: "Cuéntanos tu idea y te ayudamos a definir la solución, el alcance y el presupuesto.",
     },
@@ -95,6 +131,9 @@ export const es: ShopCopy = {
     automation: {
       slug: "automatizaciones",
       name: "Automatizaciones e inteligencia artificial",
+      shortName: "Automatizaciones e IA",
+      chip: "Automatización e IA",
+      shortSummary: "Menos tareas manuales y tus herramientas conectadas.",
       summary: "Reduce tareas manuales, mejora la gestión interna y conecta las herramientas de tu empresa.",
       description:
         "Automatizamos tareas repetitivas para que la información pase de un sistema a otro sin depender de procesos manuales. Podemos leer facturas y albaranes, extraer sus datos y completar registros en Excel o CSV. También conectamos formularios, correos electrónicos, chats, aplicaciones y herramientas internas.",
@@ -116,6 +155,9 @@ export const es: ShopCopy = {
     apps: {
       slug: "aplicaciones-web-moviles",
       name: "Aplicaciones web y móviles",
+      shortName: "Apps web y móviles",
+      chip: "Apps",
+      shortSummary: "Soluciones adaptadas a cada actividad.",
       summary: "Soluciones digitales adaptadas a las necesidades de cada actividad.",
       description:
         "Desarrollamos aplicaciones web, móviles y PWA a medida: paneles de gestión, registro de incidencias, usuarios y permisos, geolocalización, formularios digitales e integraciones con tus bases de datos y servicios externos.",
@@ -137,6 +179,9 @@ export const es: ShopCopy = {
     web: {
       slug: "desarrollo-web",
       name: "Desarrollo web",
+      shortName: "Desarrollo web",
+      chip: "Webs",
+      shortSummary: "Webs, tiendas online y portales rápidos.",
       summary: "Webs corporativas, tiendas online, portales y áreas privadas rápidas y adaptadas al móvil.",
       description:
         "Diseñamos y desarrollamos páginas web corporativas, tiendas online, portales de servicios y aplicaciones web. Optimizamos la velocidad y la usabilidad, adaptamos cada proyecto a dispositivos móviles y nos encargamos de su mantenimiento y evolución.",
@@ -158,6 +203,9 @@ export const es: ShopCopy = {
     geo: {
       slug: "geolocalizacion",
       name: "Geolocalización y turismo",
+      shortName: "Geolocalización y turismo",
+      chip: "Geolocalización",
+      shortSummary: "Guías de vídeo, mapas y seguimiento.",
       summary: "Guías de vídeo geolocalizadas, mapas interactivos y seguimiento de ubicaciones.",
       description:
         "Aplicaciones y guías digitales que relacionan vídeos, lugares e información útil, y servicios de localización y seguimiento de activos o vehículos con panel de control e informes.",
@@ -175,6 +223,9 @@ export const es: ShopCopy = {
     pos: {
       slug: "integraciones-tpv",
       name: "Integración de TPV, cartas y contenidos comerciales",
+      shortName: "TPV, cartas y catálogo",
+      chip: "TPV",
+      shortSummary: "Tu carta sincronizada en todos los canales.",
       summary: "Carta y catálogo sincronizados con tu TPV en todos tus canales digitales.",
       description:
         "Mantenemos sincronizada la información de tu carta o catálogo para que los productos, precios y descripciones estén actualizados en todos tus canales digitales, como tu página web, carta digital, TPV, CRM, SaaS o ERP.",
@@ -193,6 +244,9 @@ export const es: ShopCopy = {
     marketing: {
       slug: "marketing-redes-sociales",
       name: "Marketing, redes sociales y producción audiovisual",
+      shortName: "Marketing y audiovisual",
+      chip: "Marketing",
+      shortSummary: "Contenido, vídeo y campañas digitales.",
       summary: "Contenido, vídeo y campañas digitales para hacer crecer tu marca.",
       description:
         "Creamos contenido visual para redes sociales y campañas digitales utilizando el material proporcionado por el cliente o produciendo nuevas fotografías y vídeos en sus instalaciones.",
@@ -215,6 +269,9 @@ export const es: ShopCopy = {
     design: {
       slug: "diseno-grafico",
       name: "Diseño gráfico e identidad visual",
+      shortName: "Diseño e identidad",
+      chip: "Diseño",
+      shortSummary: "Logotipos, marca y piezas gráficas.",
       summary: "Identidad corporativa, logotipos y piezas gráficas para papel y digital.",
       description:
         "Creamos identidades corporativas y todo el material gráfico de tu marca: logotipos, manuales, cartelería, folletos, cartas y menús, presentaciones, banners y recursos visuales para webs y aplicaciones.",
@@ -236,6 +293,9 @@ export const es: ShopCopy = {
     maintenance: {
       slug: "mantenimiento-soporte",
       name: "Mantenimiento y soporte",
+      shortName: "Mantenimiento y soporte",
+      chip: "Mantenimiento",
+      shortSummary: "Todo al día y funcionando.",
       summary: "Tu web, tus aplicaciones y tus automatizaciones siempre al día y funcionando.",
       description:
         "Nos ocupamos del mantenimiento técnico de tus proyectos digitales: actualizaciones de seguridad, copias de seguridad, corrección de errores, mejoras evolutivas y soporte para aplicaciones, automatizaciones e integraciones.",
@@ -259,6 +319,7 @@ export const es: ShopCopy = {
     "whatsapp-chatbot": {
       slug: "chatbot-whatsapp",
       name: "Chatbot para WhatsApp y Chat CRM",
+      shortName: "Chatbot WhatsApp + CRM",
       summary: "Atiende, clasifica y da seguimiento a tus conversaciones de WhatsApp y web desde un único panel.",
       problem:
         "Los mensajes de clientes llegan por varios canales, se pierden o se responden tarde, y no queda registro de las oportunidades comerciales.",
@@ -297,6 +358,7 @@ export const es: ShopCopy = {
     "voice-agent": {
       slug: "agente-voz",
       name: "Agente de voz con inteligencia artificial",
+      shortName: "Agente de voz con IA",
       summary: "Un asistente telefónico que atiende llamadas, recoge solicitudes, gestiona reservas y deriva a tu equipo.",
       problem:
         "Las llamadas que no se atienden son clientes perdidos, y atender el teléfono todo el día quita tiempo al equipo.",
@@ -314,6 +376,7 @@ export const es: ShopCopy = {
     "invoice-automation": {
       slug: "facturas-albaranes-excel",
       name: "Automatización de facturas y albaranes",
+      shortName: "Facturas y albaranes con IA",
       summary: "Lectura automática de facturas y albaranes con IA y volcado de sus datos en Excel, CSV o tu CRM.",
       problem:
         "Transcribir a mano facturas y albaranes consume horas cada semana y provoca errores en la contabilidad y el stock.",
@@ -330,6 +393,7 @@ export const es: ShopCopy = {
     "system-integrations": {
       slug: "integraciones-sistemas",
       name: "Integraciones y automatización de procesos",
+      shortName: "Integración de sistemas",
       summary: "Conectamos tus herramientas para que los datos fluyan solos entre CRM, ERP, SaaS, correo y hojas de cálculo.",
       problem: "Copiar datos de una aplicación a otra es lento, repetitivo y una fuente constante de errores.",
       features: [
@@ -345,6 +409,7 @@ export const es: ShopCopy = {
     "bodyshop-app": {
       slug: "taller-chapa-pintura",
       name: "Aplicación para talleres de chapa y pintura",
+      shortName: "App talleres chapa y pintura",
       summary: "Organiza y controla toda la actividad del taller: vehículos, clientes, reparaciones, presupuestos y entregas.",
       problem:
         "Sin una herramienta propia, el estado de cada reparación, las fotos y los presupuestos se gestionan en papel, mensajes y hojas sueltas.",
@@ -363,6 +428,7 @@ export const es: ShopCopy = {
     "citizen-incidents": {
       slug: "incidencias-ciudadanas",
       name: "Aplicación de incidencias ciudadanas",
+      shortName: "Incidencias ciudadanas",
       summary: "La ciudadanía comunica incidencias con fotos y ubicación; tu organización las clasifica, asigna y resuelve desde un panel.",
       problem:
         "Las incidencias llegan por teléfono, correo o redes sociales sin ubicación ni fotos, y no hay forma de saber en qué estado están.",
@@ -401,6 +467,7 @@ export const es: ShopCopy = {
     "custom-apps": {
       slug: "aplicaciones-a-medida",
       name: "Aplicaciones web, móviles y PWA a medida",
+      shortName: "Apps web, móviles y PWA",
       summary: "Desarrollamos la aplicación que necesita tu actividad, desde el prototipo hasta la publicación.",
       problem: "Las herramientas genéricas no se adaptan a tus procesos y obligan a trabajar con parches.",
       features: [
@@ -416,6 +483,7 @@ export const es: ShopCopy = {
     "custom-website": {
       slug: "web-a-medida",
       name: "Desarrollo web a medida",
+      shortName: "Desarrollo web a medida",
       summary: "Webs corporativas, tiendas online y portales rápidos, adaptados al móvil y fáciles de mantener.",
       problem: "Una web lenta, anticuada o difícil de actualizar hace perder clientes y oportunidades.",
       features: [
@@ -431,6 +499,7 @@ export const es: ShopCopy = {
     "video-guide": {
       slug: "guia-videos",
       name: "Guía de vídeos geolocalizada",
+      shortName: "Guía de vídeos geolocalizada",
       summary: "Una guía digital que relaciona vídeos, lugares e información útil en un mapa interactivo.",
       problem: "La información turística está dispersa y no conecta los contenidos audiovisuales con el lugar en el que se encuentra el visitante.",
       features: [
@@ -465,6 +534,7 @@ export const es: ShopCopy = {
     "menu-pos-sync": {
       slug: "sincronizacion-carta-tpv",
       name: "Sincronización de carta y TPV",
+      shortName: "Sincronización carta y TPV",
       summary: "Tu carta y tus precios, siempre actualizados en la web, la carta digital y el TPV.",
       problem: "Cambiar un precio en el TPV y olvidarlo en la web o en la carta digital genera errores y quejas.",
       features: [
@@ -498,6 +568,7 @@ export const es: ShopCopy = {
     "seo-geo-llmo": {
       slug: "posicionamiento-seo-geo",
       name: "Posicionamiento en buscadores y sistemas de respuesta",
+      shortName: "SEO, GEO y LLMO",
       summary: "SEO, GEO y LLMO para que tu empresa aparezca en Google y en las respuestas de los asistentes de IA.",
       problem: "Si tu empresa no aparece en los buscadores ni en las respuestas de la IA, tus clientes encuentran a la competencia.",
       features: [
@@ -513,6 +584,7 @@ export const es: ShopCopy = {
     "social-content": {
       slug: "contenidos-redes-sociales",
       name: "Gestión y contenidos para redes sociales",
+      shortName: "Redes sociales",
       summary: "Planificamos, diseñamos y publicamos el contenido de tus redes sociales.",
       problem: "Publicar con constancia y calidad en redes sociales lleva un tiempo que muchas empresas no tienen.",
       features: [
@@ -528,6 +600,7 @@ export const es: ShopCopy = {
     "video-production": {
       slug: "produccion-video",
       name: "Producción de vídeo",
+      shortName: "Producción de vídeo",
       summary: "Rodajes en tus instalaciones: entrevistas, productos, espacios y procesos.",
       problem: "Sin vídeo propio, es difícil mostrar lo que hace única a tu empresa.",
       features: [
@@ -543,6 +616,7 @@ export const es: ShopCopy = {
     "ad-campaigns": {
       slug: "campanas-publicidad",
       name: "Campañas de publicidad digital",
+      shortName: "Publicidad digital",
       summary: "Campañas en Google Ads, Meta Ads, TikTok Ads y LinkedIn Ads orientadas a resultados.",
       problem: "Invertir en publicidad sin estrategia ni medición es gastar presupuesto sin saber qué funciona.",
       features: [
@@ -557,6 +631,7 @@ export const es: ShopCopy = {
     "brand-identity": {
       slug: "identidad-visual",
       name: "Identidad corporativa y diseño gráfico",
+      shortName: "Identidad corporativa",
       summary: "Logotipo, manual de marca y todas las piezas gráficas que necesita tu empresa.",
       problem: "Una imagen poco cuidada o incoherente resta confianza y hace que tu marca no se recuerde.",
       features: [
@@ -572,6 +647,7 @@ export const es: ShopCopy = {
     "web-maintenance": {
       slug: "mantenimiento-web",
       name: "Mantenimiento web básico",
+      shortName: "Mantenimiento web",
       summary: "Actualizaciones, seguridad, copias de seguridad y soporte para que tu web funcione siempre.",
       problem: "Una web sin mantenimiento acaba con fallos, vulnerabilidades de seguridad y formularios que no funcionan.",
       features: [

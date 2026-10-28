@@ -7,8 +7,8 @@ import {
   ContactPage,
   ProductPage,
   ProductsPage,
-  ShopHomePage,
 } from "@/components/shop/pages";
+import { ShopHomePage } from "@/components/shop/shop-home";
 import { ShopShell } from "@/components/shop/shop-shell";
 import { organizationJsonLd, shopMetadata } from "@/components/shop/structured-data";
 import { JsonLd } from "@/components/shop/json-ld";

@@ -1,5 +1,5 @@
 import { ASSET_BASE } from "@/config/site";
-import type { Category, CategoryId, Product, ProductId } from "./types";
+import type { Category, CategoryId, Product, ProductId, SolutionGroupId } from "./types";
 
 // Locale-independent catalog: order, prices, WooCommerce links, images.
 // To add a product: add its id to productIds (types.ts), an entry here and its
@@ -45,9 +45,10 @@ export const products: Product[] = [
       { slug: "email-marketing-tool-basic", amount: 16.9 },
       { slug: "email-marketing-tool-medium", amount: 25.9 },
     ],
+    icon: "mail",
     featured: true,
   },
-  { id: "seo-geo-llmo", category: "marketing", price: { kind: "quote" }, primaryCta: "quote", featured: true },
+  { id: "seo-geo-llmo", category: "marketing", price: { kind: "quote" }, primaryCta: "quote", icon: "trending", featured: true },
   { id: "social-content", category: "marketing", price: { kind: "quote" }, primaryCta: "quote", image: `${ASSET_BASE}/expertise-creative.webp` },
   { id: "video-production", category: "marketing", price: { kind: "quote" }, primaryCta: "availability" },
   { id: "ad-campaigns", category: "marketing", price: { kind: "quote" }, primaryCta: "quote", image: `${ASSET_BASE}/project-marketing.webp` },
@@ -64,6 +65,21 @@ export const products: Product[] = [
     featured: true,
   },
 ];
+
+/** Custom solutions on the shop home, grouped in four blocks. */
+export const solutionGroups: { id: SolutionGroupId; icon: Category["icon"]; products: ProductId[] }[] = [
+  { id: "automation", icon: "bot", products: ["voice-agent", "invoice-automation", "system-integrations", "menu-pos-sync"] },
+  { id: "apps", icon: "smartphone", products: ["bodyshop-app", "citizen-incidents", "oidococina", "custom-apps"] },
+  { id: "web-geo", icon: "code", products: ["custom-website", "video-guide", "canarygps"] },
+  { id: "marketing-design", icon: "megaphone", products: ["seo-geo-llmo", "social-content", "video-production", "ad-campaigns", "brand-identity"] },
+];
+
+/** "Subscription" badge for monthly plans, "Custom" for quote-based services. */
+export function productBadge(p: Product): "subscription" | "custom" | null {
+  if (p.price.kind === "quote") return "custom";
+  if (p.price.kind === "from" && p.price.period === "month") return "subscription";
+  return null;
+}
 
 export const getCategory = (id: CategoryId) => categories.find((c) => c.id === id)!;
 export const getProduct = (id: ProductId) => products.find((p) => p.id === id)!;

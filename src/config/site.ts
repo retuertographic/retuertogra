@@ -61,3 +61,14 @@ export const mapAddress =
 
 export const mapEmbedUrl =
   "https://maps.google.com/maps?q=C.%20de%20Calder%C3%B3n%20de%20la%20Barca%2C%202%2C%20Oficina%203%2C%2038005%20Santa%20Cruz%20de%20Tenerife&t=m&z=14&output=embed&iwloc=near";
+
+/**
+ * Social profiles shown in the shop footer. Only entries with a URL are rendered
+ * (the old site linked them to "#"); fill them in to show the icons.
+ */
+export const SOCIAL_LINKS: { network: "facebook" | "instagram" | "x" | "linkedin"; url: string | null }[] = [
+  { network: "facebook", url: null },
+  { network: "instagram", url: null },
+  { network: "x", url: null },
+  { network: "linkedin", url: null },
+];

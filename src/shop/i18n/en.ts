@@ -48,6 +48,40 @@ export const en: ShopCopy = {
       whatsapp: "WhatsApp",
       phone: "Phone",
     },
+    quoteShort: "Get a quote",
+    location: "Tenerife",
+    trust: [
+      { long: "Fixed price", short: "Fixed price" },
+      { long: "No-obligation proposal", short: "No obligation" },
+      { long: "Local team in Tenerife", short: "Local team" },
+    ],
+    search: {
+      placeholder: "What does your business need?",
+      label: "Search services",
+      open: "Search",
+      all: "All",
+      noResults: "No services match your search.",
+    },
+    badges: { subscription: "Subscription", custom: "Custom" },
+    viewServices: "View services",
+    viewAllServices: "View all services",
+    viewCatalog: "View full catalogue",
+    featuredEyebrow: "Set price",
+    ctaEyebrow: "Let's talk",
+    steps: {
+      title: "How we work",
+      items: [
+        { title: "Tell us your idea", body: "By form, meeting or WhatsApp. No jargon." },
+        { title: "Get your proposal", body: "Scope, timeline and fixed price in writing." },
+        { title: "We launch and maintain", body: "Development, launch and ongoing support." },
+      ],
+    },
+    solutionGroups: {
+      automation: "Automation & AI",
+      apps: "Applications",
+      "web-geo": "Web & geolocation",
+      "marketing-design": "Marketing & design",
+    },
     whatsappMessage: "Hi, I'd like some information about your services.",
     whatsappProductMessage: "Hi, I'm interested in “{product}”. Could you tell me more?",
     floatingWhatsapp: "Chat on WhatsApp",
@@ -58,7 +92,8 @@ export const en: ShopCopy = {
       metaDescription:
         "AI automation, web and mobile apps, web development, marketing, graphic design and maintenance. Fixed-price services and tailored projects.",
       eyebrow: "Digital services shop",
-      title: "Digital services ready to order",
+      titleLead: "Digital services",
+      titleAccent: "ready to order",
       intro:
         "Automation, apps, web solutions, marketing, graphic design and video production. Order fixed-price services or request a quote for your custom project.",
       categoriesTitle: "Categories",
@@ -66,7 +101,8 @@ export const en: ShopCopy = {
       featuredTitle: "Products with a set price",
       featuredIntro: "Services with a fixed or guide price, ready to get started.",
       customTitle: "Tailored solutions",
-      customIntro: "Projects we adapt to your business. We'll prepare a no-obligation proposal.",
+      customHeading: "Projects we adapt to your business.",
+      customNote: "We'll prepare a no-obligation proposal.",
       ctaTitle: "Can't find what you're looking for?",
       ctaBody: "Tell us your idea and we'll help you define the solution, scope and budget.",
     },
@@ -95,6 +131,9 @@ export const en: ShopCopy = {
     automation: {
       slug: "automation",
       name: "Automation and artificial intelligence",
+      shortName: "Automation & AI",
+      chip: "AI & automation",
+      shortSummary: "Less manual work and connected tools.",
       summary: "Cut manual work, improve internal management and connect your business tools.",
       description:
         "We automate repetitive tasks so information flows from one system to another without manual steps. We can read invoices and delivery notes, extract their data and fill in Excel or CSV records. We also connect forms, email, chats, apps and internal tools.",
@@ -116,6 +155,9 @@ export const en: ShopCopy = {
     apps: {
       slug: "web-mobile-applications",
       name: "Web and mobile applications",
+      shortName: "Web & mobile apps",
+      chip: "Apps",
+      shortSummary: "Solutions tailored to each business.",
       summary: "Digital solutions tailored to the needs of each business.",
       description:
         "We build custom web, mobile and PWA applications: management dashboards, incident reporting, users and permissions, geolocation, digital forms and integrations with your databases and external services.",
@@ -137,6 +179,9 @@ export const en: ShopCopy = {
     web: {
       slug: "web-development",
       name: "Web development",
+      shortName: "Web development",
+      chip: "Websites",
+      shortSummary: "Fast websites, online shops and portals.",
       summary: "Fast, mobile-ready corporate websites, online shops, portals and private areas.",
       description:
         "We design and build corporate websites, online shops, service portals and web applications. We optimise speed and usability, adapt every project to mobile devices and take care of maintenance and ongoing improvements.",
@@ -158,6 +203,9 @@ export const en: ShopCopy = {
     geo: {
       slug: "geolocation",
       name: "Geolocation and tourism",
+      shortName: "Geolocation & tourism",
+      chip: "Geolocation",
+      shortSummary: "Video guides, maps and tracking.",
       summary: "Geolocated video guides, interactive maps and location tracking.",
       description:
         "Apps and digital guides that link videos, places and useful information, plus location and tracking services for assets or vehicles with a control panel and reports.",
@@ -175,6 +223,9 @@ export const en: ShopCopy = {
     pos: {
       slug: "pos-integrations",
       name: "POS, menu and product content integration",
+      shortName: "POS, menus & catalogue",
+      chip: "POS",
+      shortSummary: "Your menu in sync across every channel.",
       summary: "Your menu and catalogue in sync with your POS across all digital channels.",
       description:
         "We keep your menu or catalogue in sync so products, prices and descriptions are up to date on every digital channel: your website, digital menu, POS, CRM, SaaS or ERP.",
@@ -193,6 +244,9 @@ export const en: ShopCopy = {
     marketing: {
       slug: "marketing-social-media",
       name: "Marketing, social media and video production",
+      shortName: "Marketing & video",
+      chip: "Marketing",
+      shortSummary: "Content, video and digital campaigns.",
       summary: "Content, video and digital campaigns to grow your brand.",
       description:
         "We create visual content for social media and digital campaigns, using material supplied by the client or producing new photos and videos on their premises.",
@@ -215,6 +269,9 @@ export const en: ShopCopy = {
     design: {
       slug: "graphic-design",
       name: "Graphic design and visual identity",
+      shortName: "Design & identity",
+      chip: "Design",
+      shortSummary: "Logos, branding and graphic pieces.",
       summary: "Corporate identity, logos and graphic pieces for print and digital.",
       description:
         "We create corporate identities and all your brand's graphic material: logos, brand guidelines, posters, brochures, menus, presentations, banners and visual assets for websites and apps.",
@@ -236,6 +293,9 @@ export const en: ShopCopy = {
     maintenance: {
       slug: "maintenance-support",
       name: "Maintenance and support",
+      shortName: "Maintenance & support",
+      chip: "Maintenance",
+      shortSummary: "Everything up to date and running.",
       summary: "Your website, apps and automations always up to date and running.",
       description:
         "We take care of the technical maintenance of your digital projects: security updates, backups, bug fixes, ongoing improvements and support for apps, automations and integrations.",
@@ -259,6 +319,7 @@ export const en: ShopCopy = {
     "whatsapp-chatbot": {
       slug: "whatsapp-chatbot",
       name: "WhatsApp chatbot and Chat CRM",
+      shortName: "WhatsApp chatbot + CRM",
       summary: "Answer, sort and follow up your WhatsApp and website conversations from a single dashboard.",
       problem:
         "Customer messages arrive through several channels, get lost or answered late, and sales opportunities go unrecorded.",
@@ -297,6 +358,7 @@ export const en: ShopCopy = {
     "voice-agent": {
       slug: "ai-voice-agent",
       name: "AI voice agent",
+      shortName: "AI voice agent",
       summary: "A phone assistant that answers calls, takes requests, manages bookings and routes calls to your team.",
       problem: "Missed calls are lost customers, and answering the phone all day takes time away from your team.",
       features: [
@@ -313,6 +375,7 @@ export const en: ShopCopy = {
     "invoice-automation": {
       slug: "invoice-delivery-note-automation",
       name: "Invoice and delivery note automation",
+      shortName: "AI invoices & delivery notes",
       summary: "AI reads your invoices and delivery notes and exports their data to Excel, CSV or your CRM.",
       problem:
         "Typing up invoices and delivery notes by hand takes hours every week and causes errors in accounting and stock.",
@@ -329,6 +392,7 @@ export const en: ShopCopy = {
     "system-integrations": {
       slug: "system-integrations",
       name: "Integrations and process automation",
+      shortName: "System integration",
       summary: "We connect your tools so data flows automatically between CRM, ERP, SaaS, email and spreadsheets.",
       problem: "Copying data from one app to another is slow, repetitive and a constant source of errors.",
       features: [
@@ -344,6 +408,7 @@ export const en: ShopCopy = {
     "bodyshop-app": {
       slug: "body-shop-app",
       name: "App for body and paint shops",
+      shortName: "Body & paint shop app",
       summary: "Organise and control everything in your shop: vehicles, customers, repairs, quotes and deliveries.",
       problem:
         "Without a dedicated tool, repair status, photos and quotes are handled on paper, in messages and on loose sheets.",
@@ -362,6 +427,7 @@ export const en: ShopCopy = {
     "citizen-incidents": {
       slug: "citizen-incident-app",
       name: "Citizen incident reporting app",
+      shortName: "Citizen incident reporting",
       summary: "Citizens report incidents with photos and location; your organisation sorts, assigns and resolves them from one dashboard.",
       problem:
         "Incidents arrive by phone, email or social media without location or photos, and nobody can tell what state they're in.",
@@ -400,6 +466,7 @@ export const en: ShopCopy = {
     "custom-apps": {
       slug: "custom-apps",
       name: "Custom web, mobile and PWA apps",
+      shortName: "Web, mobile & PWA apps",
       summary: "We build the app your business needs, from prototype to launch.",
       problem: "Off-the-shelf tools don't fit your processes and force you to work with workarounds.",
       features: [
@@ -415,6 +482,7 @@ export const en: ShopCopy = {
     "custom-website": {
       slug: "custom-website",
       name: "Custom web development",
+      shortName: "Custom web development",
       summary: "Fast corporate websites, online shops and portals that work on mobile and are easy to maintain.",
       problem: "A slow, outdated or hard-to-update website loses customers and opportunities.",
       features: [
@@ -430,6 +498,7 @@ export const en: ShopCopy = {
     "video-guide": {
       slug: "geolocated-video-guide",
       name: "Geolocated video guide",
+      shortName: "Geolocated video guide",
       summary: "A digital guide that links videos, places and useful information on an interactive map.",
       problem: "Tourist information is scattered and doesn't connect video content with where the visitor actually is.",
       features: [
@@ -464,6 +533,7 @@ export const en: ShopCopy = {
     "menu-pos-sync": {
       slug: "menu-pos-sync",
       name: "Menu and POS sync",
+      shortName: "Menu & POS sync",
       summary: "Your menu and prices always up to date on your website, digital menu and POS.",
       problem: "Changing a price on the POS and forgetting the website or digital menu causes errors and complaints.",
       features: [
@@ -497,6 +567,7 @@ export const en: ShopCopy = {
     "seo-geo-llmo": {
       slug: "seo-geo-llmo",
       name: "Search engine and answer engine optimisation",
+      shortName: "SEO, GEO & LLMO",
       summary: "SEO, GEO and LLMO so your business shows up on Google and in AI assistant answers.",
       problem: "If your business doesn't appear in search engines or AI answers, your customers find your competitors.",
       features: [
@@ -512,6 +583,7 @@ export const en: ShopCopy = {
     "social-content": {
       slug: "social-media-content",
       name: "Social media management and content",
+      shortName: "Social media",
       summary: "We plan, design and publish your social media content.",
       problem: "Posting consistently and with quality on social media takes time many businesses don't have.",
       features: [
@@ -527,6 +599,7 @@ export const en: ShopCopy = {
     "video-production": {
       slug: "video-production",
       name: "Video production",
+      shortName: "Video production",
       summary: "Shoots on your premises: interviews, products, spaces and processes.",
       problem: "Without your own video, it's hard to show what makes your business unique.",
       features: [
@@ -542,6 +615,7 @@ export const en: ShopCopy = {
     "ad-campaigns": {
       slug: "ad-campaigns",
       name: "Digital advertising campaigns",
+      shortName: "Digital advertising",
       summary: "Results-driven campaigns on Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads.",
       problem: "Advertising without strategy or measurement means spending budget without knowing what works.",
       features: [
@@ -556,6 +630,7 @@ export const en: ShopCopy = {
     "brand-identity": {
       slug: "brand-identity",
       name: "Corporate identity and graphic design",
+      shortName: "Corporate identity",
       summary: "Logo, brand guidelines and every graphic piece your business needs.",
       problem: "A careless or inconsistent image erodes trust and makes your brand forgettable.",
       features: [
@@ -571,6 +646,7 @@ export const en: ShopCopy = {
     "web-maintenance": {
       slug: "web-maintenance",
       name: "Basic website maintenance",
+      shortName: "Website maintenance",
       summary: "Updates, security, backups and support to keep your website running.",
       problem: "A website without maintenance ends up with bugs, security vulnerabilities and broken forms.",
       features: [
