@@ -3,14 +3,15 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { catalogImages, shopDetailsUrl } from "./data";
-import type { Dictionary } from "./i18n";
-import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/layout/icons";
 
 const AUTOPLAY_MS = 5000;
 
-export function CatalogCarousel({ dict }: { dict: Dictionary }) {
-  const catalog = dict.catalog.products.map((product, i) => ({ ...product, image: catalogImages[i] }));
+export type CatalogItem = { id: string; title: string; price: string; image: string; href: string };
+
+export function CatalogCarousel({ dict, items: catalog }: { dict: Dictionary; locale: Locale; items: CatalogItem[] }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const count = catalog.length;
@@ -41,7 +42,7 @@ export function CatalogCarousel({ dict }: { dict: Dictionary }) {
         >
           {items.map((item, i) => (
             <div
-              key={`${item.title}-${i}`}
+              key={`${item.id}-${i}`}
               className="w-[calc((100%-(var(--per)-1)*var(--gap))/var(--per))] shrink-0"
             >
               <Image
@@ -59,7 +60,7 @@ export function CatalogCarousel({ dict }: { dict: Dictionary }) {
                 {item.price}
               </h5>
               <a
-                href={shopDetailsUrl}
+                href={item.href}
                 className="mt-5 inline-block bg-rg-navy px-6 py-3 font-roboto text-base font-medium leading-6 text-white underline-offset-2 hover:underline"
               >
                 {dict.catalog.details}

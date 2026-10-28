@@ -1,4 +1,4 @@
-import { fontVariables } from "@/components/sites/retuertographicdesign/fonts";
+import { fontVariables } from "@/components/layout/fonts";
 import "../globals.css";
 
 export default function EnglishRootLayout({

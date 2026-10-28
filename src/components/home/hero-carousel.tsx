@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { heroSlides } from "./data";
-import type { Dictionary } from "./i18n";
-import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
+import { heroSlides } from "./media";
+import type { Dictionary } from "@/i18n/dictionaries";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/layout/icons";
 
 function ConnectForm({ dict }: { dict: Dictionary }) {
   return (

@@ -1,9 +1,15 @@
 import Image from "next/image";
-import { ASSET_BASE, SOURCE_ORIGIN, mapAddress, mapEmbedUrl, projectImages } from "./data";
-import type { Dictionary } from "./i18n";
+import { ASSET_BASE, SOURCE_ORIGIN, mapAddress, mapEmbedUrl } from "@/config/site";
+import { priceLine } from "@/components/shop/price";
+import type { Locale } from "@/i18n/config";
+import { getProduct } from "@/shop/catalog";
+import { shopCopy } from "@/shop/i18n";
+import { shopRouteHref } from "@/shop/routes";
+import { homeCatalogProducts, projectImages } from "./media";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { CatalogCarousel } from "./catalog-carousel";
 import { ExpertiseTabs } from "./expertise-tabs";
-import { SmallChevronRightIcon, StarIcon } from "./icons";
+import { SmallChevronRightIcon, StarIcon } from "@/components/layout/icons";
 
 const h2 =
   "font-poppins text-[32px] font-semibold leading-[1.2] text-rg-ink min-[1025px]:text-5xl";
@@ -78,7 +84,7 @@ export function ConnectMindsSection({ dict }: SectionProps) {
 
 export function FeaturedWorkSection({ dict }: SectionProps) {
   return (
-    <section className="px-4 py-[60px] min-[1025px]:px-20 min-[1025px]:pt-[136px] min-[1025px]:pb-[112px]">
+    <section id={dict.anchors.projects} className="px-4 py-[60px] min-[1025px]:px-20 min-[1025px]:pt-[136px] min-[1025px]:pb-[112px]">
       <div className="mx-auto max-w-[1140px] text-center">
         <h5 className={`${h5} text-rg-ink`}>{dict.featured.eyebrow}</h5>
         <h2 className={`${h2} mt-6`}>{dict.featured.title}</h2>
@@ -137,7 +143,18 @@ export function FeaturedWorkSection({ dict }: SectionProps) {
   );
 }
 
-export function CatalogSection({ dict }: SectionProps) {
+export function CatalogSection({ dict, locale }: SectionProps & { locale: Locale }) {
+  const copy = shopCopy[locale];
+  const items = homeCatalogProducts.map((id) => {
+    const product = getProduct(id);
+    return {
+      id,
+      title: copy.products[id].name,
+      price: priceLine(locale, copy.ui, product),
+      image: product.image ?? "",
+      href: shopRouteHref(locale, { type: "product", id }),
+    };
+  });
   return (
     <section className="px-4 py-[60px] min-[1025px]:px-[90px] min-[1025px]:pt-[142px] min-[1025px]:pb-[110px]">
       <div className="mx-auto max-w-[1260px]">
@@ -145,7 +162,7 @@ export function CatalogSection({ dict }: SectionProps) {
           <h2 className={h2}>{dict.catalog.title}</h2>
           <h5 className={`${h5} mt-5 text-rg-text`}>{dict.catalog.subtitle}</h5>
         </div>
-        <CatalogCarousel dict={dict} />
+        <CatalogCarousel dict={dict} locale={locale} items={items} />
       </div>
     </section>
   );

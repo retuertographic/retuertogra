@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { ASSET_BASE, mapAddress } from "./data";
-import { type Dictionary, type Locale, languages, localeHref, locales } from "./i18n";
+import { ASSET_BASE, BUSINESS, mapAddress } from "@/config/site";
+import { type Locale, localeConfig, locales } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
+import type { Alternates } from "./site-header";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -21,8 +23,14 @@ const heading = "font-poppins text-2xl font-semibold leading-[1] text-rg-ink";
 const greenLink = "font-figtree text-base leading-6 text-rg-green hover:text-rg-ink";
 const contactItem = "font-figtree text-base leading-6 text-rg-text";
 
-export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary }) {
-  const t = dict.footer;
+type SiteFooterProps = {
+  locale: Locale;
+  strings: Dictionary["footer"];
+  homeHref: string;
+  alternates: Alternates;
+};
+
+export function SiteFooter({ locale, strings: t, homeHref, alternates }: SiteFooterProps) {
   return (
     <footer className="bg-white">
       <div className="mx-auto grid max-w-[1120px] gap-12 px-6 pt-20 pb-[54px] min-[1025px]:grid-cols-[399px_228px_228px_265px] min-[1025px]:gap-0 min-[1025px]:px-0">
@@ -53,7 +61,7 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
           <h4 className={heading}>{t.quickLinks}</h4>
           <ul className="mt-5 flex flex-col gap-4">
             <li>
-              <a href={localeHref(locale)} className={greenLink}>{t.home}</a>
+              <a href={homeHref} className={greenLink}>{t.home}</a>
             </li>
             <li>
               <a href={t.shop.href} className={greenLink}>{t.shop.label}</a>
@@ -90,22 +98,22 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
               {mapAddress}
             </li>
             <li>
-              <a href="tel:0034922971723" className={contactItem}>
+              <a href={`tel:${BUSINESS.phoneEs}`} className={contactItem}>
                 {t.esPhone}
               </a>
             </li>
             <li>
-              <a href="tel:00493031878629" className={contactItem}>
+              <a href={`tel:${BUSINESS.phoneDe}`} className={contactItem}>
                 {t.dePhone}
               </a>
             </li>
             <li>
-              <a href="mailto:info@retuertographicdesign.com" className={contactItem}>
+              <a href={`mailto:${BUSINESS.email}`} className={contactItem}>
                 {t.email}
               </a>
             </li>
             <li>
-              <a href="mailto:info@retuertographicdesign.com" className={contactItem}>
+              <a href={`mailto:${BUSINESS.email}`} className={contactItem}>
                 {t.hours}
               </a>
             </li>
@@ -121,11 +129,11 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
           {locales.map((l) => {
             const label =
               l === locale
-                ? languages[l].nativeName
-                : `${languages[l].nativeName} (${languages[l].names[locale]})`;
+                ? localeConfig[l].nativeName
+                : `${localeConfig[l].nativeName} (${localeConfig[l].names[locale]})`;
             const content = (
               <>
-                <Image src={`${ASSET_BASE}/${languages[l].flag}`} alt="" width={18} height={12} />
+                <Image src={`${ASSET_BASE}/${localeConfig[l].flag}`} alt="" width={18} height={12} />
                 {label}
               </>
             );
@@ -134,7 +142,7 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
                 {l === locale ? (
                   <span className="flex items-center gap-2" aria-current="page">{content}</span>
                 ) : (
-                  <a href={localeHref(l)} hrefLang={l} lang={l} className="flex items-center gap-2 hover:text-rg-green">
+                  <a href={alternates[l]} hrefLang={l} lang={l} className="flex items-center gap-2 hover:text-rg-green">
                     {content}
                   </a>
                 )}

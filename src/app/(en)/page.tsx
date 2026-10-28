@@ -1,4 +1,4 @@
-import { HomePage, homeMetadata } from "@/components/sites/retuertographicdesign/home-page";
+import { HomePage, homeMetadata } from "@/components/home/home-page";
 
 export const metadata = homeMetadata("en");
 

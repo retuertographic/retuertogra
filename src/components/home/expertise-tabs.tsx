@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { cn } from "@/lib/utils";
-import { expertiseMedia } from "./data";
-import type { Dictionary } from "./i18n";
+import { expertiseMedia } from "./media";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 type Tab = Dictionary["expertise"]["tabs"][number] & (typeof expertiseMedia)[number];
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { fontVariables } from "@/components/sites/retuertographicdesign/fonts";
-import { localeHref } from "@/components/sites/retuertographicdesign/i18n";
+import { fontVariables } from "@/components/layout/fonts";
+import { siteHref } from "@/i18n/routing";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function GlobalNotFound() {
         <h1 className="font-poppins text-5xl font-semibold text-rg-ink">404</h1>
         <p className="font-figtree text-base text-rg-text">This page does not exist.</p>
         <a
-          href={localeHref("en")}
+          href={siteHref("en")}
           className="rounded-[3px] bg-rg-green px-6 py-3 font-figtree text-base text-white"
         >
           Home
